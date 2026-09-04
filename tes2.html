@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT. Usra Tampi Indonesia — Plastic Injection Moulding &amp; Press Forming</title>
+<meta name="description" content="PT. Usra Tampi Indonesia — produsen komponen plastic injection moulding, press forming, dan assembly line untuk industri otomotif sejak 1994. Bersertifikat ISO 9001 &amp; IATF 16949.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230B1F3F'/%3E%3Cpath d='M9 22V10h4.2c2.6 0 4.1 1.4 4.1 3.6 0 1.6-.8 2.8-2.2 3.3l2.6 5.1h-2.9l-2.2-4.6h-1.2V22H9Zm2.4-6.7h1.6c1.1 0 1.8-.6 1.8-1.6s-.7-1.6-1.8-1.6h-1.6v3.2Z' fill='%23C8102E'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 950:'#060F24', 900:'#0B1F3F', 800:'#12294D', 700:'#1B3966', 100:'#E7EAF1' },
+          crimson: { 700:'#9C0D22', 600:'#C8102E', 500:'#D4283F' },
+          steel: { 700:'#3D4759', 500:'#64708A', 300:'#AEB6C4' },
+          paper: { 50:'#F6F7F9', 100:'#EFF1F4' },
+        },
+        fontFamily: {
+          sans: ['Inter','ui-sans-serif','system-ui'],
+          display: ['"Space Grotesk"','ui-sans-serif','system-ui'],
+          mono: ['"IBM Plex Mono"','ui-monospace','monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color:#10182B; }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+  /* corner-bracket frame, echoes registration/alignment marks used on technical drawings */
+  .corner-frame { position: relative; }
+  .corner-frame::before, .corner-frame::after,
+  .corner-frame > .cf-tr, .corner-frame > .cf-br {
+    content: ''; position: absolute; width: 26px; height: 26px; z-index: 10;
+    border-color: #C8102E;
+  }
+  .corner-frame::before { top: -10px; left: -10px; border-top: 3px solid; border-left: 3px solid; }
+  .corner-frame::after { bottom: -10px; right: -10px; border-bottom: 3px solid; border-right: 3px solid; }
+
+  /* tag label styled as a technical annotation rather than tracked-out caps */
+  .tag-label { display:inline-flex; align-items:center; gap:.5rem; font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:#C8102E; }
+  .tag-label::before { content:''; width:18px; height:2px; background:#C8102E; display:inline-block; }
+
+  .header-shadow { box-shadow: 0 1px 0 rgba(11,31,63,0.08); }
+
+  /* hero load sequence — one orchestrated moment */
+  .reveal { opacity: 0; transform: translateY(16px); animation: revealUp .7s cubic-bezier(.2,.7,.2,1) forwards; }
+  .d1{animation-delay:.05s} .d2{animation-delay:.18s} .d3{animation-delay:.31s} .d4{animation-delay:.44s} .d5{animation-delay:.57s}
+  @keyframes revealUp { to { opacity:1; transform:translateY(0); } }
+
+  /* logo marquee */
+  .marquee-track { display:flex; width:max-content; animation: marquee 28s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+
+  .card-hover { transition: border-color .25s ease, transform .25s ease; }
+  .card-hover:hover { border-color:#C8102E; transform: translateY(-2px); }
+
+  ::selection { background:#C8102E; color:#fff; }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid #C8102E; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none !important; opacity:1; transform:none; }
+    .marquee-track { animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+
+<body class="bg-white text-[#10182B] antialiased">
+
+<!-- ============ HEADER ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#top" class="flex items-center gap-3 shrink-0">
+        <img src="https://usra.co.id/images/logos/usra.png" alt="PT. Usra Tampi Indonesia" class="h-9 w-auto">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-9 font-medium text-[15px] text-navy-900">
+        <a href="#bisnis" class="hover:text-crimson-600 transition-colors">Lini Bisnis</a>
+        <a href="#tentang" class="hover:text-crimson-600 transition-colors">Tentang Kami</a>
+        <a href="#produk" class="hover:text-crimson-600 transition-colors">Produk</a>
+        <a href="#mutu" class="hover:text-crimson-600 transition-colors">Sistem Mutu</a>
+        <a href="#berita" class="hover:text-crimson-600 transition-colors">Berita</a>
+        <a href="#kontak" class="hover:text-crimson-600 transition-colors">Kontak</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-5">
+        <a href="tel:0218934630" class="flex items-center gap-2 text-sm text-steel-700">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 1.5a10 10 0 0 0 5.5 5.5L15 13l5 2v2c0 1-1 2-2 2C10.5 19 4 12.5 4 5Z"/></svg>
+          <span class="font-mono">021&nbsp;8934630</span>
+        </a>
+        <a href="#kontak" class="inline-flex items-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white text-sm font-semibold px-5 py-2.5 rounded-sm transition-colors">
+          Dapatkan Penawaran
+        </a>
+      </div>
+
+      <button id="menu-toggle" aria-label="Buka menu" aria-expanded="false" class="lg:hidden text-navy-900">
+        <svg id="icon-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg id="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="hidden"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- mobile nav -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-navy-100">
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex flex-col gap-1 font-medium text-navy-900">
+      <a href="#bisnis" class="py-2.5 border-b border-navy-100">Lini Bisnis</a>
+      <a href="#tentang" class="py-2.5 border-b border-navy-100">Tentang Kami</a>
+      <a href="#produk" class="py-2.5 border-b border-navy-100">Produk</a>
+      <a href="#mutu" class="py-2.5 border-b border-navy-100">Sistem Mutu</a>
+      <a href="#berita" class="py-2.5 border-b border-navy-100">Berita</a>
+      <a href="#kontak" class="py-2.5">Kontak</a>
+      <a href="#kontak" class="mt-3 text-center bg-crimson-600 text-white font-semibold px-5 py-3 rounded-sm">Dapatkan Penawaran</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative bg-navy-900 pt-20 overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.06]" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px); background-size:26px 26px;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-2 gap-14 items-center py-16 lg:py-24">
+      <div>
+        <p class="reveal d1 tag-label mb-5">Plastic Injection Moulding &amp; Press Forming</p>
+        <h1 class="reveal d2 font-display text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] font-semibold text-white">
+          Presisi yang diproduksi,<br class="hidden sm:block"> kepercayaan yang dibangun sejak 1994
+        </h1>
+        <p class="reveal d3 mt-6 text-navy-100/80 text-lg leading-relaxed max-w-xl">
+          Kami memproduksi komponen plastic injection, press forming, dan assembly line untuk rantai pasok otomotif nasional — didukung 21 mesin injection berkapasitas 100 hingga 2.400 ton dan sistem mutu bersertifikat ISO 9001 &amp; IATF 16949.
+        </p>
+        <div class="reveal d4 mt-9 flex flex-wrap items-center gap-4">
+          <a href="#bisnis" class="inline-flex items-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white font-semibold px-6 py-3.5 rounded-sm transition-colors">
+            Lihat Lini Bisnis
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#tentang" class="inline-flex items-center gap-2 border border-white/25 hover:border-white/60 text-white font-medium px-6 py-3.5 rounded-sm transition-colors">
+            Profil Perusahaan
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal d5 relative mx-auto lg:mx-0 max-w-md lg:max-w-none">
+        <div class="corner-frame">
+          <img src="https://usra.co.id/images/wp1.jpg" alt="Fasilitas produksi plastic injection moulding PT. Usra Tampi Indonesia" class="w-full h-[420px] lg:h-[480px] object-cover">
+        </div>
+        <div class="absolute -bottom-7 -left-6 sm:-left-10 bg-white rounded-sm shadow-xl px-6 py-4 w-56">
+          <p class="font-mono text-2xl font-semibold text-navy-900">1994</p>
+          <p class="text-xs text-steel-500 mt-1">Beroperasi sejak, diawali dengan 8 mesin injection</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- spec strip -->
+    <div class="border-t border-white/10 py-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+      <div class="border-l-2 border-crimson-600 pl-4">
+        <p class="font-mono text-2xl sm:text-3xl text-white font-semibold" data-count-to="21">0</p>
+        <p class="text-navy-100/60 text-sm mt-1">Mesin Injection Aktif</p>
+      </div>
+      <div class="border-l-2 border-crimson-600 pl-4">
+        <p class="font-mono text-2xl sm:text-3xl text-white font-semibold"><span data-count-to="100">0</span>–<span data-count-to="2400">0</span></p>
+        <p class="text-navy-100/60 text-sm mt-1">Ton Kapasitas Mesin</p>
+      </div>
+      <div class="border-l-2 border-crimson-600 pl-4">
+        <p class="font-mono text-2xl sm:text-3xl text-white font-semibold">9001</p>
+        <p class="text-navy-100/60 text-sm mt-1">ISO — Sistem Mutu</p>
+      </div>
+      <div class="border-l-2 border-crimson-600 pl-4">
+        <p class="font-mono text-2xl sm:text-3xl text-white font-semibold">16949</p>
+        <p class="text-navy-100/60 text-sm mt-1">IATF — Standar Otomotif</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUSTED BY ============ -->
+<section class="bg-paper-50 border-b border-navy-100 py-10 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <p class="text-center text-sm text-steel-500 mb-7">Dipercaya oleh manufaktur otomotif terkemuka</p>
+  </div>
+  <div class="relative">
+    <div class="marquee-track items-center gap-16">
+      <div class="flex items-center gap-16 pr-16">
+        <img src="https://usra.co.id/images/logos/logo-mmc.png" alt="Mitsubishi Motors Corporation" class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+        <img src="https://usra.co.id/images/logos/logo-ktb.png" alt="Krama Yudha Tiga Berlian" class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+        <img src="https://usra.co.id/images/logos/mkm.png" alt="MKM" class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+        <img src="https://usra.co.id/images/logos/isuzu.png" alt="Isuzu" class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+        <img src="https://usra.co.id/images/logos/logo_suzuki.png" alt="Suzuki" class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+        <img src="https://usra.co.id/images/logos/as_logo.png" alt="AS" class="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+      </div>
+      <div class="flex items-center gap-16 pr-16" aria-hidden="true">
+        <img src="https://usra.co.id/images/logos/logo-mmc.png" alt="" class="h-9 w-auto opacity-70 grayscale">
+        <img src="https://usra.co.id/images/logos/logo-ktb.png" alt="" class="h-9 w-auto opacity-70 grayscale">
+        <img src="https://usra.co.id/images/logos/mkm.png" alt="" class="h-9 w-auto opacity-70 grayscale">
+        <img src="https://usra.co.id/images/logos/isuzu.png" alt="" class="h-9 w-auto opacity-70 grayscale">
+        <img src="https://usra.co.id/images/logos/logo_suzuki.png" alt="" class="h-9 w-auto opacity-70 grayscale">
+        <img src="https://usra.co.id/images/logos/as_logo.png" alt="" class="h-9 w-auto opacity-70 grayscale">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUSINESS LINES ============ -->
+<section id="bisnis" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <p class="tag-label mb-4">Lini Bisnis</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-navy-900 leading-tight">Tiga kompetensi inti yang menopang produksi kami</h2>
+      <p class="mt-4 text-steel-500 text-lg leading-relaxed">Dari uji coba cetakan baru hingga perakitan akhir, setiap tahap dikerjakan di bawah satu atap dengan kontrol kualitas yang sama ketatnya.</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      <!-- Injection Mould -->
+      <div class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <img src="https://usra.co.id/images/galery/bs1.png" alt="Proses Injection Mould" class="w-full h-48 object-cover">
+        <div class="p-7">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.5" class="mb-4"><path d="M4 7l8-4 8 4-8 4-8-4Z"/><path d="M4 7v10l8 4 8-4V7"/><path d="M12 11v10"/></svg>
+          <h3 class="font-display text-xl font-semibold text-navy-900">Injection Mould</h3>
+          <p class="mt-3 text-steel-500 text-[15px] leading-relaxed">Proses injeksi plastik presisi tinggi, dari uji coba cetakan baru (new mould trial) hingga produksi massal skala besar.</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-steel-700">
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-crimson-600"></span>New Mould Trial</li>
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-crimson-600"></span>Mass Production</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Press Forming -->
+      <div class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <img src="https://usra.co.id/images/galery/bs2.png" alt="Proses Press Forming" class="w-full h-48 object-cover">
+        <div class="p-7">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.5" class="mb-4"><path d="M4 4h16v6H4z"/><path d="M6 14h12v6H6z"/><path d="M12 10v4"/></svg>
+          <h3 class="font-display text-xl font-semibold text-navy-900">Press Forming</h3>
+          <p class="mt-3 text-steel-500 text-[15px] leading-relaxed">Pembentukan dan laminasi panas untuk komponen interior serta eksterior kendaraan sesuai spesifikasi OEM.</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-steel-700">
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-crimson-600"></span>Hot Lamination</li>
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-crimson-600"></span>Press Forming</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Assembly Line -->
+      <div class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <img src="https://usra.co.id/images/galery/bs4.png" alt="Proses Assembly Line" class="w-full h-48 object-cover">
+        <div class="p-7">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.5" class="mb-4"><circle cx="7" cy="17" r="2.2"/><circle cx="17" cy="7" r="2.2"/><path d="M8.6 15.4 15.4 8.6"/></svg>
+          <h3 class="font-display text-xl font-semibold text-navy-900">Assembly Line</h3>
+          <p class="mt-3 text-steel-500 text-[15px] leading-relaxed">Lini perakitan komponen presisi, termasuk assembly roda kemudi, dengan pemeriksaan kualitas di tiap tahap.</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-steel-700">
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-crimson-600"></span>Steering Wheel Assy</li>
+            <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-crimson-600"></span>Dan Lainnya</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="tentang" class="py-24 bg-paper-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="relative order-2 lg:order-1">
+      <div class="corner-frame">
+        <img src="https://usra.co.id/images/about/about01.JPG" alt="Aktivitas produksi di pabrik PT. Usra Tampi Indonesia" class="w-full h-[420px] object-cover">
+      </div>
+      <div class="absolute -bottom-8 -right-4 sm:-right-8 bg-navy-900 text-white rounded-sm shadow-xl px-6 py-5 w-60">
+        <p class="font-mono text-3xl font-semibold" data-count-to="21">0</p>
+        <p class="text-navy-100/70 text-sm mt-1">Mesin injection, kapasitas 100–2.400 ton</p>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <p class="tag-label mb-4">Tentang Kami</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-navy-900 leading-tight">Tiga dekade lebih melayani rantai pasok otomotif</h2>
+      <p class="mt-5 text-steel-500 text-lg leading-relaxed">
+        PT. Usra Tampi Indonesia adalah perusahaan plastic injection moulding yang berlokasi di Kawasan Industri Jababeka, Cikarang, Bekasi. Berdiri sejak 1994 dengan 8 mesin, kini kami mengoperasikan 21 mesin injection berkapasitas 100 hingga 2.400 ton, didukung laboratorium quality inspection lengkap — dari digimatic caliper hingga CMM portable Cimcore.
+      </p>
+
+      <ul class="mt-8 space-y-4">
+        <li class="flex items-start gap-3">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" class="shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          <span class="text-navy-900 font-medium">21 mesin injection dengan kapasitas 100–2.400 ton</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" class="shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          <span class="text-navy-900 font-medium">Laboratorium QC lengkap: digimatic caliper hingga CMM portable Cimcore</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" class="shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          <span class="text-navy-900 font-medium">Bersertifikat ISO 9001 &amp; IATF 16949</span>
+        </li>
+      </ul>
+
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="#mutu" class="inline-flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white font-semibold px-6 py-3.5 rounded-sm transition-colors">Sistem Manajemen Mutu</a>
+        <a href="#kontak" class="inline-flex items-center gap-2 border border-navy-900/20 hover:border-navy-900/50 text-navy-900 font-medium px-6 py-3.5 rounded-sm transition-colors">Hubungi Kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUALITY MANAGEMENT (timeline — genuinely sequential) ============ -->
+<section id="mutu" class="py-24 bg-navy-900 relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.05]" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px); background-size:26px 26px;"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="max-w-2xl">
+      <p class="tag-label mb-4">Sistem Manajemen Mutu</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-white leading-tight">Komitmen kualitas yang tersertifikasi</h2>
+      <p class="mt-4 text-navy-100/70 text-lg leading-relaxed">Mengimplementasikan sistem manajemen mutu adalah langkah kami untuk menjaga konsistensi kualitas produk di setiap batch produksi.</p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 gap-6">
+      <div class="border border-white/10 rounded-sm p-8 bg-white/[0.03]">
+        <p class="font-mono text-crimson-500 text-sm">16 April 2012</p>
+        <h3 class="font-display text-2xl font-semibold text-white mt-3">ISO 9001</h3>
+        <p class="mt-3 text-navy-100/70 leading-relaxed">Sistem manajemen mutu diimplementasikan untuk menjaga konsistensi kualitas produk dan proses produksi secara menyeluruh.</p>
+      </div>
+      <div class="border border-white/10 rounded-sm p-8 bg-white/[0.03]">
+        <p class="font-mono text-crimson-500 text-sm">08 Juni 2017</p>
+        <h3 class="font-display text-2xl font-semibold text-white mt-3">IATF 16949</h3>
+        <p class="mt-3 text-navy-100/70 leading-relaxed">Standar mutu internasional khusus industri otomotif, memastikan kualitas komponen di sepanjang rantai pasok kendaraan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION & MISSION ============ -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-14">
+    <div class="border-t-2 border-crimson-600 pt-6">
+      <p class="tag-label mb-4">Visi</p>
+      <p class="font-display text-2xl sm:text-3xl text-navy-900 font-semibold leading-snug">Menjadi perusahaan terbaik dalam hal kualitas, yang mampu berkompetisi di tingkat nasional maupun internasional.</p>
+    </div>
+    <div class="border-t-2 border-navy-900 pt-6">
+      <p class="tag-label mb-4">Misi</p>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3">
+          <span class="font-mono text-crimson-600 text-sm mt-1">01</span>
+          <span class="text-navy-900 text-lg">Memproduksi produk dengan kualitas yang baik</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="font-mono text-crimson-600 text-sm mt-1">02</span>
+          <span class="text-navy-900 text-lg">Menjaga reputasi layanan yang baik kepada seluruh pelanggan</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="font-mono text-crimson-600 text-sm mt-1">03</span>
+          <span class="text-navy-900 text-lg">Mengimplementasikan Sistem Manajemen Mutu</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section id="produk" class="py-24 bg-paper-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <p class="tag-label mb-4">Produk Kami</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-navy-900 leading-tight">Komponen presisi untuk kendaraan terkemuka</h2>
+      <p class="mt-4 text-steel-500 text-lg leading-relaxed">Sebagian dari kendaraan yang komponennya kami produksi untuk mitra manufaktur otomotif.</p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group relative overflow-hidden rounded-sm border border-navy-100 bg-white">
+        <img src="https://usra.co.id/images/product/prod1.jpg" alt="Komponen untuk Mitsubishi Outlander" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5">
+          <p class="text-xs font-mono text-crimson-600">MITSUBISHI</p>
+          <h3 class="font-display text-lg font-semibold text-navy-900 mt-1">Outlander</h3>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-sm border border-navy-100 bg-white">
+        <img src="https://usra.co.id/images/product/prod2.jpg" alt="Komponen untuk Mitsubishi Xpander" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5">
+          <p class="text-xs font-mono text-crimson-600">MITSUBISHI</p>
+          <h3 class="font-display text-lg font-semibold text-navy-900 mt-1">Xpander</h3>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-sm border border-navy-100 bg-white">
+        <img src="https://usra.co.id/images/product/prod3.jpg" alt="Komponen untuk Mitsubishi Fuso New Canter" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5">
+          <p class="text-xs font-mono text-crimson-600">MITSUBISHI FUSO</p>
+          <h3 class="font-display text-lg font-semibold text-navy-900 mt-1">New Canter</h3>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-sm border border-navy-100 bg-white">
+        <img src="https://usra.co.id/images/product/prod4.jpg" alt="Komponen untuk Isuzu N-Series" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5">
+          <p class="text-xs font-mono text-crimson-600">ISUZU</p>
+          <h3 class="font-display text-lg font-semibold text-navy-900 mt-1">N-Series</h3>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-sm border border-navy-100 bg-white">
+        <img src="https://usra.co.id/images/product/prod5.jpg" alt="Komponen Battery B20" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5">
+          <p class="text-xs font-mono text-crimson-600">KOMPONEN</p>
+          <h3 class="font-display text-lg font-semibold text-navy-900 mt-1">Battery B20</h3>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-sm border border-navy-100 bg-white">
+        <img src="https://usra.co.id/images/product/prod6.jpg" alt="Komponen untuk Mitsubishi Colt L300" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+        <div class="p-5">
+          <p class="text-xs font-mono text-crimson-600">MITSUBISHI</p>
+          <h3 class="font-display text-lg font-semibold text-navy-900 mt-1">Colt L300</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<section id="berita" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-2xl">
+        <p class="tag-label mb-4">Berita Terbaru</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-navy-900 leading-tight">Kabar dan kegiatan perusahaan</h2>
+      </div>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <div class="relative">
+          <img src="https://usra.co.id/images/news/news1.jpeg" alt="Pelatihan Damkar dengan Jababeka" class="w-full h-44 object-cover">
+          <div class="absolute top-3 left-3 bg-white rounded-sm px-3 py-1.5 text-center leading-none">
+            <p class="font-mono font-semibold text-navy-900 text-sm">26</p>
+            <p class="text-[10px] text-steel-500">Mei 2017</p>
+          </div>
+        </div>
+        <div class="p-5"><h3 class="font-display font-semibold text-navy-900">Pelatihan Damkar dengan Jababeka</h3></div>
+      </article>
+
+      <article class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <div class="relative">
+          <img src="https://usra.co.id/images/news/news2.jpeg" alt="Kegiatan Sosial Kemasyarakatan" class="w-full h-44 object-cover">
+          <div class="absolute top-3 left-3 bg-white rounded-sm px-3 py-1.5 text-center leading-none">
+            <p class="font-mono font-semibold text-navy-900 text-sm">17</p>
+            <p class="text-[10px] text-steel-500">Agu 2018</p>
+          </div>
+        </div>
+        <div class="p-5"><h3 class="font-display font-semibold text-navy-900">Sosial Kemasyarakatan</h3></div>
+      </article>
+
+      <article class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <div class="relative">
+          <img src="https://usra.co.id/images/news/news3.jpeg" alt="Meeting Kordinasi Produksi" class="w-full h-44 object-cover">
+          <div class="absolute top-3 left-3 bg-white rounded-sm px-3 py-1.5 text-center leading-none">
+            <p class="font-mono font-semibold text-navy-900 text-sm">08</p>
+            <p class="text-[10px] text-steel-500">Agu 2018</p>
+          </div>
+        </div>
+        <div class="p-5"><h3 class="font-display font-semibold text-navy-900">Meeting Kordinasi Produksi</h3></div>
+      </article>
+
+      <article class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <div class="relative">
+          <img src="https://usra.co.id/images/news/news4.jpeg" alt="Go Live SAP" class="w-full h-44 object-cover">
+          <div class="absolute top-3 left-3 bg-white rounded-sm px-3 py-1.5 text-center leading-none">
+            <p class="font-mono font-semibold text-navy-900 text-sm">08</p>
+            <p class="text-[10px] text-steel-500">Agu 2018</p>
+          </div>
+        </div>
+        <div class="p-5"><h3 class="font-display font-semibold text-navy-900">Go Live SAP</h3></div>
+      </article>
+
+      <article class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <div class="relative">
+          <img src="https://usra.co.id/images/news/news5.jpeg" alt="Futsal Kompetisi Antar Departemen" class="w-full h-44 object-cover">
+          <div class="absolute top-3 left-3 bg-white rounded-sm px-3 py-1.5 text-center leading-none">
+            <p class="font-mono font-semibold text-navy-900 text-sm">08</p>
+            <p class="text-[10px] text-steel-500">Sep 2017</p>
+          </div>
+        </div>
+        <div class="p-5"><h3 class="font-display font-semibold text-navy-900">Futsal Kompetisi Antar Departemen</h3></div>
+      </article>
+
+      <article class="card-hover border border-navy-100 rounded-sm overflow-hidden bg-white">
+        <div class="relative">
+          <img src="https://usra.co.id/images/news/news6.jpeg" alt="Kunjungan KTB" class="w-full h-44 object-cover">
+          <div class="absolute top-3 left-3 bg-white rounded-sm px-3 py-1.5 text-center leading-none">
+            <p class="font-mono font-semibold text-navy-900 text-sm">08</p>
+            <p class="text-[10px] text-steel-500">Agu 2016</p>
+          </div>
+        </div>
+        <div class="p-5"><h3 class="font-display font-semibold text-navy-900">KTB Visit</h3></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="relative bg-navy-900 py-20 overflow-hidden">
+  <img src="https://usra.co.id/images/wp3.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-20">
+  <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/95 to-navy-900/80"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative flex flex-wrap items-center justify-between gap-8">
+    <div class="max-w-xl">
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-white leading-tight">Siap bekerja sama dengan kami?</h2>
+      <p class="mt-4 text-navy-100/70 text-lg">Diskusikan kebutuhan komponen plastic injection atau press forming Anda dengan tim kami.</p>
+    </div>
+    <div class="flex flex-wrap gap-4">
+      <a href="#kontak" class="inline-flex items-center gap-2 bg-crimson-600 hover:bg-crimson-700 text-white font-semibold px-7 py-4 rounded-sm transition-colors">
+        Hubungi Tim Kami
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / CONTACT ============ -->
+<footer id="kontak" class="bg-navy-950 text-navy-100/80 pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-5 gap-12">
+
+      <div class="lg:col-span-2">
+        <img src="https://usra.co.id/images/logos/usra.png" alt="PT. Usra Tampi Indonesia" class="h-9 w-auto brightness-0 invert mb-5">
+        <p class="text-navy-100/60 leading-relaxed max-w-sm">Produsen komponen plastic injection moulding, press forming, dan assembly line untuk industri otomotif Indonesia sejak 1994.</p>
+
+        <div class="mt-7 space-y-3 text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.6" class="mt-0.5 shrink-0"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            <span>Jl. Jababeka IX D, Blok P2K-O, Kawasan Industri Jababeka, Cikarang – Bekasi 17530, Jawa Barat, Indonesia</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.6" class="shrink-0"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 1.5a10 10 0 0 0 5.5 5.5L15 13l5 2v2c0 1-1 2-2 2C10.5 19 4 12.5 4 5Z"/></svg>
+            <span class="font-mono">021 – 8934630-31, 89832772</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="1.6" class="shrink-0"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 6 8 6 8-6"/></svg>
+            <a href="mailto:usra@cbn.net.id" class="hover:text-white transition-colors font-mono">usra@cbn.net.id</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-display font-semibold mb-5">Navigasi</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#bisnis" class="hover:text-white transition-colors">Lini Bisnis</a></li>
+          <li><a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a></li>
+          <li><a href="#produk" class="hover:text-white transition-colors">Produk</a></li>
+          <li><a href="#mutu" class="hover:text-white transition-colors">Sistem Mutu</a></li>
+          <li><a href="#berita" class="hover:text-white transition-colors">Berita</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-display font-semibold mb-5">Lini Bisnis</h4>
+        <ul class="space-y-3 text-sm">
+          <li>Injection Mould</li>
+          <li>Press Forming</li>
+          <li>Assembly Line</li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-1">
+        <h4 class="text-white font-display font-semibold mb-5">Lokasi</h4>
+        <div class="rounded-sm overflow-hidden border border-white/10 h-40">
+          <iframe title="Lokasi PT. Usra Tampi Indonesia" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d991.4447487821361!2d107.1275313!3d-6.2927504!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698ff2b7312973%3A0x9ccaf50e7bc1c0b7!2sPT.+Usra+Tampi+Indonesia!5e0!3m2!1sen!2sid!4v1547708653113" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-sm text-navy-100/50">
+      <p>© <span id="year"></span> PT. Usra Tampi Indonesia. Seluruh hak cipta dilindungi.</p>
+      <p class="font-mono text-xs">ISO 9001 · IATF 16949</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+  }));
+
+  // sticky header shadow on scroll
+  const header = document.getElementById('site-header');
+  const onScroll = () => header.classList.toggle('header-shadow', window.scrollY > 8);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // one-time count-up for spec numbers, respects reduced motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const counters = document.querySelectorAll('[data-count-to]');
+  const animateCount = (el) => {
+    const target = parseInt(el.getAttribute('data-count-to'), 10);
+    if (prefersReduced) { el.textContent = target.toLocaleString('id-ID'); return; }
+    const duration = 1100;
+    const start = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target).toLocaleString('id-ID');
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { animateCount(entry.target); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => io.observe(c));
+</script>
+
+</body>
+</html>
