@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191e">
   <meta name="description" content="PT Usra Tampi Indonesia — mitra manufaktur komponen otomotif presisi untuk injection moulding, press forming, assembly, dan quality engineering.">
-  <meta property="og:title" content="Usra Tampi — Precision that moves industry">
-  <meta property="og:description" content="Mitra manufaktur komponen otomotif presisi untuk injection moulding, press forming, assembly, dan quality engineering.">
+  <meta property="og:title" content="Usra Tampi — Presisi yang menggerakkan industri">
+  <meta property="og:description" content="PT Usra Tampi Indonesia — mitra manufaktur komponen otomotif presisi untuk injection moulding, press forming, assembly, dan quality engineering.">
   <meta property="og:type" content="website">
-  <title>Usra Tampi — Precision that moves industry</title>
+  <title>Usra Tampi — Presisi yang menggerakkan industri</title>
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -122,7 +122,12 @@
     .brand-fallback { color: var(--brand-deep); }
     .brand-name { display: block; font-family: Manrope, sans-serif; font-size: 14px; font-weight: 800; letter-spacing: .03em; line-height: 1; }
     .brand-sub { display: block; margin-top: 5px; color: rgba(255,255,255,.5); font-size: 9px; letter-spacing: .2em; line-height: 1; }
-    .primary-nav { display: flex; align-items: center; gap: clamp(18px, 2.6vw, 36px); margin-left: auto; }
+    .nav-cluster { display: flex; align-items: center; gap: clamp(16px, 2vw, 28px); margin-left: auto; }
+    .language-switcher { display: inline-flex; align-items: center; gap: 3px; padding: 3px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(0,0,0,.16); }
+    .language-switcher button { min-width: 31px; height: 27px; padding: 0 7px; border: 0; border-radius: 999px; background: transparent; color: rgba(255,255,255,.62); font-size: 10px; font-weight: 800; letter-spacing: .08em; transition: background .25s ease, color .25s ease, transform .25s ease; }
+    .language-switcher button:hover { color: #fff; transform: translateY(-1px); }
+    .language-switcher button[aria-pressed="true"] { background: var(--brand); color: var(--ink-deep); box-shadow: 0 5px 14px rgba(91,177,47,.2); }
+    .primary-nav { display: flex; align-items: center; gap: clamp(18px, 2.6vw, 36px); }
     .primary-nav a { position: relative; padding: 9px 0; color: rgba(255,255,255,.7); font-size: 13px; font-weight: 600; transition: color .25s ease; }
     .primary-nav a::after { content: ""; position: absolute; right: 0; bottom: 2px; left: 0; height: 2px; border-radius: 2px; background: var(--cyan); transform: scaleX(0); transform-origin: right; transition: transform .3s ease; }
     .primary-nav a:hover, .primary-nav a.active { color: #fff; }
@@ -149,18 +154,23 @@
     .mobile-panel { display: none; }
     html:not(.js) .menu-toggle { display: none; }
     html:not(.js) .mobile-panel { display: block; }
+    html:not(.js) .hero-carousel { display: none; }
 
     /* Hero */
-    .hero { position: relative; min-height: 720px; min-height: min(830px, 100svh); display: flex; align-items: center; isolation: isolate; overflow: hidden; background: var(--ink-deep); color: #fff; }
+    .hero { position: relative; min-height: 720px; min-height: min(830px, 100svh); display: flex; align-items: center; isolation: isolate; overflow: hidden; background: var(--ink-deep); color: #fff; touch-action: pan-y; }
     .hero::after {
       content: ""; position: absolute; z-index: -1; top: -210px; right: -170px;
       width: 560px; height: 560px; border-radius: 50%; pointer-events: none;
       background: radial-gradient(circle, rgba(91,177,47,.26), rgba(0,146,63,.08) 38%, transparent 70%);
       filter: blur(8px); animation: ambient-glow 10s ease-in-out infinite;
     }
-    .hero-media, .hero-media img, .hero-overlay, .hero-grid { position: absolute; inset: 0; }
+    .hero-media, .hero-overlay, .hero-grid { position: absolute; inset: 0; }
     .hero-media { z-index: -3; overflow: hidden; background: linear-gradient(120deg, #314038, #17191e); transform: translate3d(0,var(--parallax-y,0px),0); }
-    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; animation: kenburn 18s ease-out both; opacity: .88; }
+    .hero-slides { position: absolute; inset: 0; overflow: hidden; }
+    .hero-slide { position: absolute; inset: 0; overflow: hidden; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .9s cubic-bezier(.22,.8,.2,1), visibility 0s linear .9s; }
+    .hero-slide.is-active { opacity: 1; visibility: visible; pointer-events: auto; transition-delay: 0s; }
+    .hero-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .88; transform: scale(1.06); }
+    .hero-slide.is-active img { animation: kenburn 18s ease-out both; }
     .hero-overlay { z-index: 1; background: linear-gradient(90deg, rgba(17,19,22,.96) 0%, rgba(20,24,21,.82) 38%, rgba(23,28,24,.2) 76%, rgba(16,18,20,.4) 100%), linear-gradient(0deg, rgba(15,17,19,.74), transparent 45%); }
     .hero-grid { z-index: 2; opacity: .2; background-image: linear-gradient(rgba(181,221,156,.17) 1px, transparent 1px), linear-gradient(90deg, rgba(181,221,156,.17) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to right, rgba(0,0,0,.85), transparent 75%); pointer-events: none; }
     .hero-inner { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(0, 1fr) 280px; align-items: end; gap: 60px; padding-top: 150px; padding-bottom: 95px; }
@@ -182,6 +192,21 @@
     .hero-side small { display: block; margin-top: 15px; color: rgba(255,255,255,.55); font-size: 11px; line-height: 1.45; }
     .hero-scroll { position: absolute; right: 9px; bottom: 26px; z-index: 3; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.55); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; writing-mode: vertical-rl; }
     .hero-scroll::after { content: ""; width: 1px; height: 45px; background: linear-gradient(var(--cyan), transparent); }
+    .hero-carousel { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+    .hero-arrow { position: absolute; top: 50%; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; background: rgba(17,19,22,.25); color: rgba(255,255,255,.82); pointer-events: auto; transform: translateY(-50%); transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease; backdrop-filter: blur(8px); }
+    .hero-arrow:hover { border-color: var(--cyan); background: rgba(91,177,47,.18); color: #fff; transform: translateY(-50%) scale(1.06); }
+    .hero-arrow:active { transform: translateY(-50%) scale(.96); }
+    .hero-arrow.prev { left: clamp(16px, 3vw, 42px); }
+    .hero-arrow.next { right: clamp(16px, 3vw, 42px); }
+    .hero-arrow svg { width: 18px; height: 18px; }
+    .hero-carousel-bar { position: absolute; left: 50%; bottom: 24px; display: flex; align-items: center; gap: 13px; pointer-events: auto; transform: translateX(-50%); }
+    .hero-dots { display: flex; align-items: center; gap: 7px; }
+    .hero-dot { width: 28px; height: 3px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.35); transition: width .3s ease, background .3s ease, transform .25s ease; }
+    .hero-dot:hover { background: rgba(255,255,255,.78); transform: translateY(-1px); }
+    .hero-dot[aria-current="true"] { width: 48px; background: var(--cyan); }
+    .hero-toggle { display: grid; place-items: center; width: 29px; height: 29px; padding: 0; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; background: rgba(17,19,22,.25); color: rgba(255,255,255,.8); font-size: 11px; pointer-events: auto; transition: background .25s ease, border-color .25s ease, color .25s ease; backdrop-filter: blur(8px); }
+    .hero-toggle:hover { border-color: var(--cyan); background: rgba(91,177,47,.18); color: #fff; }
+    .hero-carousel-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
     /* Partners */
     .partners { overflow: hidden; background: var(--cyan-pale); border-bottom: 1px solid var(--line); }
@@ -245,6 +270,33 @@
     .cap-tags span { padding: 5px 8px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; color: rgba(255,255,255,.75); font-size: 10px; }
     .cap-card::after { content: "↗"; position: absolute; right: 19px; top: 18px; z-index: 2; color: var(--cyan); font-size: 18px; opacity: 0; transform: translate(-4px, 4px); transition: opacity .3s ease, transform .3s ease; }
     .cap-card:hover::after { opacity: 1; transform: none; }
+
+    /* Production portfolio */
+    .portfolio { position: relative; overflow: hidden; background: var(--paper); }
+    .portfolio::before { content: ""; position: absolute; top: -280px; right: -220px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(91,177,47,.12), rgba(0,146,63,.035) 45%, transparent 70%); pointer-events: none; }
+    .portfolio .container { position: relative; }
+    .portfolio-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 44px; }
+    .portfolio-heading { max-width: 760px; }
+    .portfolio-heading h2 { margin: 18px 0 0; color: var(--ink); font-family: Manrope, sans-serif; font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; letter-spacing: -.055em; line-height: 1.02; }
+    .portfolio-intro { max-width: 660px; margin: 23px 0 0; color: var(--muted); font-size: 16px; line-height: 1.62; }
+    .portfolio-cta { display: inline-flex; align-items: center; flex: 0 0 auto; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(0,146,63,.42); color: var(--teal-dark); font-size: 13px; font-weight: 800; white-space: nowrap; transition: color .25s ease, border-color .25s ease; }
+    .portfolio-cta span:last-child { transition: transform .25s ease; }
+    .portfolio-cta:hover { color: var(--ink); border-color: var(--brand); }
+    .portfolio-cta:hover span:last-child { transform: translate(3px,-3px); }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px; margin: 54px 0 0; padding: 0; list-style: none; }
+    .portfolio-card { position: relative; min-height: 410px; aspect-ratio: 4 / 4.8; overflow: hidden; isolation: isolate; border: 1px solid var(--line); border-radius: 18px; background: #dce7d8; box-shadow: 0 12px 34px rgba(34,52,34,.11); transition: transform .4s cubic-bezier(.22,.8,.2,1), border-color .3s ease, box-shadow .4s ease; }
+    .portfolio-card::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(17,19,22,.03) 22%, rgba(17,19,22,.28) 56%, rgba(17,19,22,.94) 100%); pointer-events: none; }
+    .portfolio-card::after { content: ""; position: absolute; z-index: 3; right: 0; bottom: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--brand-deep), var(--brand), transparent); transform: scaleX(.28); transform-origin: left; transition: transform .45s cubic-bezier(.22,.8,.2,1); }
+    .portfolio-card:hover { border-color: rgba(91,177,47,.62); box-shadow: 0 22px 48px rgba(34,52,34,.18); transform: translateY(-7px); }
+    .portfolio-card:hover::after { transform: scaleX(1); }
+    .portfolio-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .85s cubic-bezier(.2,.8,.2,1), filter .45s ease; }
+    .portfolio-card:hover img { filter: saturate(1.06); transform: scale(1.06); }
+    .portfolio-index { position: absolute; top: 17px; right: 17px; z-index: 2; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; background: rgba(17,19,22,.22); color: #fff; font-family: Manrope, sans-serif; font-size: 10px; font-weight: 800; backdrop-filter: blur(7px); }
+    .portfolio-card-body { position: absolute; right: 22px; bottom: 23px; left: 22px; z-index: 2; }
+    .portfolio-maker { margin: 0; color: rgba(255,255,255,.65); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .portfolio-card h3 { margin: 7px 0 0; color: #fff; font-family: Manrope, sans-serif; font-size: clamp(23px, 2.4vw, 31px); font-weight: 800; letter-spacing: -.05em; line-height: 1.05; }
+    .portfolio-type { display: inline-flex; margin-top: 15px; padding: 5px 9px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: rgba(17,19,22,.38); color: rgba(255,255,255,.78); font-size: 10px; backdrop-filter: blur(7px); }
+    .portfolio-note { margin: 32px 0 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.55; }
 
     /* Responsible operations */
     .responsibility { background: #fff; }
@@ -329,6 +381,7 @@
 
     @media (max-width: 1000px) {
       .primary-nav, .header-cta { display: none; }
+      .nav-cluster { gap: 12px; }
       .menu-toggle { display: grid; }
       .mobile-panel { display: none; padding: 6px 24px 24px; border-top: 1px solid rgba(255,255,255,.12); background: rgba(23,25,30,.98); }
       .mobile-panel.open { display: block; }
@@ -337,6 +390,7 @@
       .mobile-panel .mobile-cta:hover { background: var(--accent); color: #fff; }
       .hero-inner { grid-template-columns: minmax(0, 1fr) 230px; gap: 30px; }
       .cap-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .responsibility-grid, .contact-grid { gap: 45px; }
     }
     @media (max-width: 760px) {
@@ -344,7 +398,13 @@
       .section { padding: 78px 0; }
       .section-topline { display: block; }
       .section-topline > p { margin-top: 20px; }
-      .nav-shell { height: 70px; }
+      .nav-shell { height: 70px; gap: 10px; }
+      .brand { min-width: 0; gap: 8px; }
+      .brand-mark { width: 50px; height: 32px; padding: 4px 6px; }
+      .brand-name { font-size: 12px; }
+      .brand-sub { font-size: 8px; }
+      .nav-cluster { gap: 8px; }
+      .language-switcher button { min-width: 28px; height: 26px; padding-inline: 5px; }
       .hero { min-height: 800px; align-items: end; }
       .hero-inner { display: block; padding-top: 140px; padding-bottom: 76px; }
       .hero h1 { font-size: clamp(3rem, 14vw, 5.1rem); }
@@ -352,8 +412,16 @@
       .hero-meta { margin-top: 48px; }
       .hero-side { display: none; }
       .hero-scroll { right: 14px; bottom: 17px; }
+      .hero-arrow { width: 38px; height: 38px; }
+      .hero-arrow.prev { left: 12px; }
+      .hero-arrow.next { right: 12px; }
+      .hero-carousel-bar { bottom: 18px; }
       .partners-bar { display: block; padding: 24px 0 22px; }
       .partners-caption { margin-bottom: 19px; }
+      .portfolio-top { display: block; }
+      .portfolio-cta { margin-top: 24px; }
+      .portfolio-grid { margin-top: 38px; }
+      .portfolio-card { min-height: 330px; aspect-ratio: 4 / 3.6; }
       .about-grid, .responsibility-grid, .contact-grid { grid-template-columns: 1fr; }
       .about-media { min-height: 390px; }
       .stats-grid { grid-template-columns: 1fr 1fr; margin-top: 33px; }
@@ -367,6 +435,10 @@
       .form-submit { width: 100%; }
       .footer-main { grid-template-columns: 1fr 1fr; gap: 34px 25px; padding: 52px 0 40px; }
       .footer-main > :first-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 620px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card { min-height: 330px; aspect-ratio: 4 / 3.5; }
     }
     @media (max-width: 460px) {
       .hero-meta-item { padding-right: 9px; }
@@ -383,6 +455,7 @@
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       [data-reveal] { opacity: 1; transform: none; }
       .partner-track { animation: none; }
+      .hero-slide.is-active img { animation: none; transform: none; }
       [data-tilt], [data-magnetic] { transform: none !important; }
     }
   </style>
@@ -390,73 +463,108 @@
 
 <body>
   <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
-  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip">Lewati ke konten utama</a>
 
   <header class="site-header" id="site-header">
     <div class="container nav-shell">
-      <a class="brand" href="#home" aria-label="Usra Tampi Indonesia, beranda">
+      <a class="brand" href="#home" data-i18n-aria="brand.home" aria-label="Usra Tampi Indonesia, beranda">
         <span class="brand-mark" aria-hidden="true">
           <img class="brand-logo" src="https://usra.co.id/images/logos/usra.png" alt="" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
           <span class="brand-fallback" hidden>UT</span>
         </span>
         <span><span class="brand-name">USRA TAMPI</span><span class="brand-sub">INDONESIA</span></span>
       </a>
-      <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama">
-        <a href="#story" data-nav>About us</a>
-        <a href="#capabilities" data-nav>Capabilities</a>
-        <a href="#quality" data-nav>Quality</a>
-        <a href="#contact" data-nav>Contact</a>
-      </nav>
-      <a class="header-cta" href="#contact">Mulai percakapan <span aria-hidden="true">↗</span></a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-panel" aria-label="Buka menu">
+      <div class="nav-cluster">
+        <div class="language-switcher" role="group" data-i18n-aria="language.label" aria-label="Pilih bahasa">
+          <button type="button" data-lang="id" aria-pressed="true">ID</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <nav class="primary-nav" id="primary-nav" data-i18n-aria="nav.label" aria-label="Navigasi utama">
+          <a href="#story" data-nav data-i18n="nav.about">Tentang kami</a>
+          <a href="#capabilities" data-nav data-i18n="nav.capabilities">Kapabilitas</a>
+          <a href="#quality" data-nav data-i18n="nav.quality">Kualitas</a>
+          <a href="#contact" data-nav data-i18n="nav.contact">Kontak</a>
+        </nav>
+        <a class="header-cta" href="#contact"><span data-i18n="cta.start">Mulai percakapan</span> <span aria-hidden="true">↗</span></a>
+      </div>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-panel" data-i18n-aria="menu.open" aria-label="Buka menu">
         <svg id="menu-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg id="menu-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" hidden><path d="m6 6 12 12M18 6 6 18"/></svg>
       </button>
     </div>
     <div class="mobile-panel" id="mobile-panel">
-      <a href="#story">About us</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#quality">Quality</a>
-      <a href="#contact">Contact</a>
-      <a class="mobile-cta" href="#contact">Mulai percakapan <span aria-hidden="true">↗</span></a>
+      <a href="#story" data-i18n="nav.about">Tentang kami</a>
+      <a href="#capabilities" data-i18n="nav.capabilities">Kapabilitas</a>
+      <a href="#quality" data-i18n="nav.quality">Kualitas</a>
+      <a href="#contact" data-i18n="nav.contact">Kontak</a>
+      <a class="mobile-cta" href="#contact"><span data-i18n="cta.start">Mulai percakapan</span> <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
   <main id="main-content">
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-media" aria-hidden="true">
-        <img src="https://usra.co.id/images/wp1.jpg" alt="" fetchpriority="high" onerror="this.style.display='none'">
+        <div class="hero-slides" id="hero-slides">
+          <div class="hero-slide is-active" data-hero-slide="0">
+            <img src="https://usra.co.id/images/wp1.jpg" alt="" fetchpriority="high" decoding="async" onerror="this.style.display='none'">
+          </div>
+          <div class="hero-slide" data-hero-slide="1">
+            <img src="https://usra.co.id/images/wp3.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          </div>
+          <div class="hero-slide" data-hero-slide="2">
+            <img src="https://usra.co.id/images/wp2.jpg" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          </div>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-grid"></div>
       </div>
       <div class="container hero-inner">
         <div class="hero-copy" data-reveal>
-          <span class="eyebrow">Precision manufacturing · Cikarang</span>
-          <h1 id="hero-title">Presisi yang <em>menggerakkan</em> industri.</h1>
-          <p class="hero-lede">Dari trial mould hingga produksi massal, kami membantu brand otomotif menjaga setiap komponen tetap konsisten, aman, dan siap melaju.</p>
+          <span class="eyebrow" data-i18n="hero.eyebrow">Manufaktur presisi · Cikarang</span>
+          <h1 id="hero-title"><span data-i18n="hero.title.before">Presisi yang </span><em data-i18n="hero.title.em">menggerakkan</em><span data-i18n="hero.title.after"> industri.</span></h1>
+          <p class="hero-lede" data-i18n="hero.lede">Dari trial mould hingga produksi massal, kami membantu brand otomotif menjaga setiap komponen tetap konsisten, aman, dan siap melaju.</p>
           <div class="hero-actions">
-            <a class="button-primary" data-magnetic href="#capabilities">Jelajahi kapabilitas <span class="button-arrow" aria-hidden="true">↗</span></a>
-            <a class="button-secondary" href="#story">Kenali Usra <span class="button-arrow" aria-hidden="true">↓</span></a>
+            <a class="button-primary" data-magnetic href="#capabilities"><span data-i18n="hero.cta.primary">Jelajahi kapabilitas</span> <span class="button-arrow" aria-hidden="true">↗</span></a>
+            <a class="button-secondary" href="#story"><span data-i18n="hero.cta.secondary">Kenali Usra</span> <span class="button-arrow" aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero-meta" aria-label="Fakta singkat Usra">
-            <div class="hero-meta-item"><strong>30+</strong><span>tahun pengalaman</span></div>
-            <div class="hero-meta-item"><strong>21</strong><span>mesin injection</span></div>
-            <div class="hero-meta-item"><strong>2.400T</strong><span>clamping force</span></div>
+          <div class="hero-meta" data-i18n-aria="hero.meta.label" aria-label="Fakta singkat Usra">
+            <div class="hero-meta-item"><strong>30+</strong><span data-i18n="hero.meta.years">tahun pengalaman</span></div>
+            <div class="hero-meta-item"><strong>21</strong><span data-i18n="hero.meta.machines">mesin injection</span></div>
+            <div class="hero-meta-item"><strong>2.400T</strong><span data-i18n="hero.meta.force">clamping force</span></div>
           </div>
         </div>
         <aside class="hero-side" data-reveal="fade-left" style="--i: 2">
-          <div class="hero-side-label"><span class="pulse" aria-hidden="true"></span> Production ready</div>
-          <p>One accountable partner for every next move.</p>
-          <small>Injection moulding · Press forming · Assembly · Quality engineering</small>
+          <div class="hero-side-label"><span class="pulse" aria-hidden="true"></span> <span data-i18n="hero.side.label">Siap produksi</span></div>
+          <p data-i18n="hero.side.title">Satu mitra yang bertanggung jawab untuk setiap langkah berikutnya.</p>
+          <small data-i18n="hero.side.list">Injection moulding · Press forming · Assembly · Quality engineering</small>
         </aside>
       </div>
-      <div class="hero-scroll" aria-hidden="true">Scroll to explore</div>
+      <div class="hero-carousel" id="hero-carousel" role="group" data-i18n-aria="hero.carousel.label" aria-label="Kontrol galeri hero">
+        <button class="hero-arrow prev" id="hero-prev" type="button" data-i18n-aria="hero.prev" aria-label="Gambar sebelumnya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+        </button>
+        <div class="hero-carousel-bar">
+          <div class="hero-dots" role="group" data-i18n-aria="hero.dots.label" aria-label="Pilih gambar hero">
+            <button class="hero-dot" type="button" data-hero-dot="0" data-i18n-aria="hero.slide.1" aria-label="Tampilkan gambar 1" aria-current="true"></button>
+            <button class="hero-dot" type="button" data-hero-dot="1" data-i18n-aria="hero.slide.2" aria-label="Tampilkan gambar 2" aria-current="false"></button>
+            <button class="hero-dot" type="button" data-hero-dot="2" data-i18n-aria="hero.slide.3" aria-label="Tampilkan gambar 3" aria-current="false"></button>
+          </div>
+          <button class="hero-toggle" id="hero-toggle" type="button" data-i18n-aria="hero.pause" aria-label="Jeda pergantian gambar" aria-pressed="false">
+            <span id="hero-toggle-icon" aria-hidden="true">Ⅱ</span>
+          </button>
+        </div>
+        <button class="hero-arrow next" id="hero-next" type="button" data-i18n-aria="hero.next" aria-label="Gambar berikutnya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        </button>
+        <span class="hero-carousel-status" id="hero-slide-status" aria-live="polite" aria-atomic="true"></span>
+      </div>
+      <div class="hero-scroll" aria-hidden="true" data-i18n="hero.scroll">Gulir untuk menjelajah</div>
     </section>
 
-    <section class="partners" aria-label="Mitra industri">
+    <section class="partners" data-i18n-aria="partners.label" aria-label="Mitra industri">
       <div class="container partners-bar">
-        <p class="partners-caption">Dipercaya oleh mitra industri</p>
-        <div class="partner-scroller" tabindex="0">
+        <p class="partners-caption" data-i18n="partners.caption">Dipercaya oleh mitra industri</p>
+        <div class="partner-scroller" tabindex="0" data-i18n-aria="partners.scroller" aria-label="Geser untuk melihat mitra industri">
           <div class="partner-track">
             <span class="partner-wordmark">MITSUBISHI</span><span class="partner-wordmark">SUZUKI</span><span class="partner-wordmark">ISUZU</span><span class="partner-wordmark">FUSO</span><span class="partner-wordmark">KTB</span><span class="partner-wordmark">MKM</span>
             <span class="partner-wordmark" aria-hidden="true">MITSUBISHI</span><span class="partner-wordmark" aria-hidden="true">SUZUKI</span><span class="partner-wordmark" aria-hidden="true">ISUZU</span><span class="partner-wordmark" aria-hidden="true">FUSO</span><span class="partner-wordmark" aria-hidden="true">KTB</span><span class="partner-wordmark" aria-hidden="true">MKM</span>
@@ -469,21 +577,21 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-copy" data-reveal>
-            <span class="eyebrow dark">01 — About us</span>
-            <h2 id="story-title">Built on discipline.<br><span>Ready for what’s next.</span></h2>
-            <p>PT Usra Tampi Indonesia tumbuh dari satu tujuan sederhana: membantu industri otomotif bergerak lebih baik. Hari ini, satu fasilitas terpadu kami menghubungkan mould trial, produksi, assembly, dan inspeksi dalam satu alur yang terukur.</p>
-            <a class="text-link" href="#quality">Cara kami menjaga kualitas <span class="circle-arrow" aria-hidden="true">↗</span></a>
+            <span class="eyebrow dark" data-i18n="about.eyebrow">01 — Tentang kami</span>
+            <h2 id="story-title"><span data-i18n="about.title.before">Dibangun dengan disiplin.</span><br><span data-i18n="about.title.after">Siap untuk langkah berikutnya.</span></h2>
+            <p data-i18n="about.copy">PT Usra Tampi Indonesia tumbuh dari satu tujuan sederhana: membantu industri otomotif bergerak lebih baik. Hari ini, satu fasilitas terpadu kami menghubungkan mould trial, produksi, assembly, dan inspeksi dalam satu alur yang terukur.</p>
+            <a class="text-link" href="#quality"><span data-i18n="about.link">Cara kami menjaga kualitas</span> <span class="circle-arrow" aria-hidden="true">↗</span></a>
           </div>
           <div class="about-media" data-reveal="zoom-in" style="--i: 1">
-            <img src="https://usra.co.id/images/about/about01.JPG" alt="Fasilitas produksi PT Usra Tampi Indonesia di Cikarang" loading="lazy" onerror="this.style.display='none'">
-            <div class="year-tag"><strong>1994</strong><span>Est. Cikarang</span></div>
+            <img src="https://usra.co.id/images/about/about01.JPG" alt="Fasilitas produksi PT Usra Tampi Indonesia di Cikarang" data-i18n-alt="image.about" loading="lazy" onerror="this.style.display='none'">
+            <div class="year-tag"><strong>1994</strong><span data-i18n="about.established">Berdiri di Cikarang</span></div>
           </div>
         </div>
-        <div class="stats-grid" aria-label="Angka penting Usra">
-          <div class="stat-card" data-reveal style="--i: 0"><strong data-count="30" data-suffix="+">30+</strong><span>Tahun pengalaman manufaktur</span></div>
-          <div class="stat-card" data-reveal style="--i: 1"><strong data-count="21">21</strong><span>Mesin injection beroperasi</span></div>
-          <div class="stat-card" data-reveal="blur-up" style="--i: 2"><strong data-count="2400" data-suffix="T">2.400T</strong><span>Clamping force maksimum</span></div>
-          <div class="stat-card" data-reveal style="--i: 3"><strong>ISO <small>·</small> IATF</strong><span>Sistem mutu tersertifikasi</span></div>
+        <div class="stats-grid" data-i18n-aria="stats.label" aria-label="Angka penting Usra">
+          <div class="stat-card" data-reveal style="--i: 0"><strong data-count="30" data-suffix="+">30+</strong><span data-i18n="stats.years">Tahun pengalaman manufaktur</span></div>
+          <div class="stat-card" data-reveal style="--i: 1"><strong data-count="21">21</strong><span data-i18n="stats.machines">Mesin injection beroperasi</span></div>
+          <div class="stat-card" data-reveal="blur-up" style="--i: 2"><strong data-count="2400" data-suffix="T">2.400T</strong><span data-i18n="stats.force">Clamping force maksimum</span></div>
+          <div class="stat-card" data-reveal style="--i: 3"><strong>ISO <small>·</small> IATF</strong><span data-i18n="stats.certified">Sistem mutu tersertifikasi</span></div>
         </div>
       </div>
     </section>
@@ -491,47 +599,107 @@
     <section class="section capabilities" id="capabilities" aria-labelledby="capabilities-title">
       <div class="container">
         <div class="section-topline" data-reveal>
-          <div class="section-heading"><span class="eyebrow">02 — Capabilities</span><h2 id="capabilities-title">Four capabilities.<br><span>One accountable partner.</span></h2></div>
-          <p>Skala boleh besar. Koordinasi tetap terasa dekat — dari spesifikasi awal sampai part siap masuk line.</p>
+          <div class="section-heading"><span class="eyebrow" data-i18n="capabilities.eyebrow">02 — Kapabilitas</span><h2 id="capabilities-title"><span data-i18n="capabilities.title.before">Empat kapabilitas.</span><br><span data-i18n="capabilities.title.after">Satu mitra yang bertanggung jawab.</span></h2></div>
+          <p data-i18n="capabilities.intro">Skala boleh besar. Koordinasi tetap terasa dekat — dari spesifikasi awal sampai part siap masuk line.</p>
         </div>
         <div class="cap-grid">
           <article class="cap-card" data-reveal style="--i: 0" data-tilt>
-            <div class="cap-card-media"><img src="https://usra.co.id/images/galery/bs1.png" alt="Mesin injection moulding di fasilitas Usra" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap-card-media"><img src="https://usra.co.id/images/galery/bs1.png" alt="Mesin injection moulding di fasilitas Usra" data-i18n-alt="image.cap1" loading="lazy" onerror="this.style.display='none'"></div>
             <span class="cap-index">01</span>
-            <div class="cap-card-body"><h3>Injection moulding</h3><p>Trial mould hingga volume tinggi dengan kontrol proses yang konsisten.</p><div class="cap-tags"><span>100–2.400T</span><span>Mass production</span></div></div>
+            <div class="cap-card-body"><h3 data-i18n="cap.1.title">Injection moulding</h3><p data-i18n="cap.1.copy">Trial mould hingga volume tinggi dengan kontrol proses yang konsisten.</p><div class="cap-tags"><span>100–2.400T</span><span data-i18n="cap.tag.mass">Produksi massal</span></div></div>
           </article>
           <article class="cap-card" data-reveal style="--i: 1" data-tilt>
-            <div class="cap-card-media"><img src="https://usra.co.id/images/galery/bs2.png" alt="Proses press forming dan hot lamination" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap-card-media"><img src="https://usra.co.id/images/galery/bs2.png" alt="Proses press forming dan hot lamination" data-i18n-alt="image.cap2" loading="lazy" onerror="this.style.display='none'"></div>
             <span class="cap-index">02</span>
-            <div class="cap-card-body"><h3>Press forming</h3><p>Forming dan hot lamination untuk struktur, trim, dan surface finish.</p><div class="cap-tags"><span>Hot lamination</span><span>Finishing</span></div></div>
+            <div class="cap-card-body"><h3 data-i18n="cap.2.title">Press forming</h3><p data-i18n="cap.2.copy">Forming dan hot lamination untuk struktur, trim, dan surface finish.</p><div class="cap-tags"><span>Hot lamination</span><span data-i18n="cap.tag.finish">Finishing</span></div></div>
           </article>
           <article class="cap-card" data-reveal style="--i: 2" data-tilt>
-            <div class="cap-card-media"><img src="https://usra.co.id/images/galery/bs4.png" alt="Aktivitas assembly line komponen otomotif" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap-card-media"><img src="https://usra.co.id/images/galery/bs4.png" alt="Aktivitas assembly line komponen otomotif" data-i18n-alt="image.cap3" loading="lazy" onerror="this.style.display='none'"></div>
             <span class="cap-index">03</span>
-            <div class="cap-card-body"><h3>Assembly line</h3><p>Perakitan komponen yang siap mengikuti kebutuhan line-side OEM.</p><div class="cap-tags"><span>Sub-assembly</span><span>Line-side ready</span></div></div>
+            <div class="cap-card-body"><h3 data-i18n="cap.3.title">Assembly line</h3><p data-i18n="cap.3.copy">Perakitan komponen yang siap mengikuti kebutuhan line-side OEM.</p><div class="cap-tags"><span>Sub-assembly</span><span data-i18n="cap.tag.ready">Siap line-side</span></div></div>
           </article>
           <article class="cap-card" data-reveal style="--i: 3" data-tilt>
-            <div class="cap-card-media"><img src="https://usra.co.id/images/wp2.jpg" alt="Inspeksi kualitas komponen di fasilitas Usra" loading="lazy" onerror="this.style.display='none'"></div>
+            <div class="cap-card-media"><img src="https://usra.co.id/images/wp2.jpg" alt="Inspeksi kualitas komponen di fasilitas Usra" data-i18n-alt="image.cap4" loading="lazy" onerror="this.style.display='none'"></div>
             <span class="cap-index">04</span>
-            <div class="cap-card-body"><h3>Quality engineering</h3><p>Inspeksi first article dan traceability untuk menjaga setiap batch.</p><div class="cap-tags"><span>ISO 9001</span><span>IATF 16949</span></div></div>
+            <div class="cap-card-body"><h3 data-i18n="cap.4.title">Quality engineering</h3><p data-i18n="cap.4.copy">Inspeksi first article dan traceability untuk menjaga setiap batch.</p><div class="cap-tags"><span>ISO 9001</span><span>IATF 16949</span></div></div>
           </article>
         </div>
       </div>
     </section>
 
+    <section class="section portfolio" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <div class="portfolio-top" data-reveal>
+          <div class="portfolio-heading">
+            <span class="eyebrow dark" data-i18n="portfolio.eyebrow">Portofolio produksi</span>
+            <h2 id="products-title" data-i18n="portfolio.title">Program OEM pilihan.</h2>
+            <p class="portfolio-intro" data-i18n="portfolio.intro">Pilihan representatif platform kendaraan dan program komponen yang didukung oleh operasi injection moulding, press forming, dan assembly kami di Cikarang.</p>
+          </div>
+          <a class="portfolio-cta" href="#contact"><span data-i18n="portfolio.cta">Diskusikan program Anda berikutnya</span><span aria-hidden="true">↗</span></a>
+        </div>
+
+        <ul class="portfolio-grid" data-i18n-aria="portfolio.list.label" aria-label="Program OEM pilihan">
+          <li data-reveal style="--i: 0">
+            <article class="portfolio-card" aria-labelledby="program-outlander">
+              <img src="https://usra.co.id/images/product/prod1.jpg" alt="Komponen representatif untuk program Mitsubishi Motors Outlander" data-i18n-alt="portfolio.image.1" loading="lazy" decoding="async" sizes="(min-width: 1000px) 33vw, (min-width: 620px) 50vw, 100vw" onerror="this.style.display='none'">
+              <span class="portfolio-index" aria-hidden="true">01</span>
+              <div class="portfolio-card-body"><p class="portfolio-maker" data-i18n="portfolio.brand.mitsubishi">Mitsubishi Motors</p><h3 id="program-outlander">Outlander</h3><span class="portfolio-type" data-i18n="portfolio.type.passenger">Kendaraan penumpang</span></div>
+            </article>
+          </li>
+          <li data-reveal style="--i: 1">
+            <article class="portfolio-card" aria-labelledby="program-xpander">
+              <img src="https://usra.co.id/images/product/prod2.jpg" alt="Komponen representatif untuk program Mitsubishi Motors Xpander" data-i18n-alt="portfolio.image.2" loading="lazy" decoding="async" sizes="(min-width: 1000px) 33vw, (min-width: 620px) 50vw, 100vw" onerror="this.style.display='none'">
+              <span class="portfolio-index" aria-hidden="true">02</span>
+              <div class="portfolio-card-body"><p class="portfolio-maker" data-i18n="portfolio.brand.mitsubishi">Mitsubishi Motors</p><h3 id="program-xpander">Xpander</h3><span class="portfolio-type" data-i18n="portfolio.type.passenger">Kendaraan penumpang</span></div>
+            </article>
+          </li>
+          <li data-reveal style="--i: 2">
+            <article class="portfolio-card" aria-labelledby="program-canter">
+              <img src="https://usra.co.id/images/product/prod3.jpg" alt="Komponen representatif untuk program Mitsubishi Fuso New Canter" data-i18n-alt="portfolio.image.3" loading="lazy" decoding="async" sizes="(min-width: 1000px) 33vw, (min-width: 620px) 50vw, 100vw" onerror="this.style.display='none'">
+              <span class="portfolio-index" aria-hidden="true">03</span>
+              <div class="portfolio-card-body"><p class="portfolio-maker" data-i18n="portfolio.brand.fuso">Mitsubishi Fuso</p><h3 id="program-canter">New Canter</h3><span class="portfolio-type" data-i18n="portfolio.type.commercial">Kendaraan komersial</span></div>
+            </article>
+          </li>
+          <li data-reveal style="--i: 3">
+            <article class="portfolio-card" aria-labelledby="program-n-series">
+              <img src="https://usra.co.id/images/product/prod4.jpg" alt="Komponen representatif untuk program Isuzu N-Series" data-i18n-alt="portfolio.image.4" loading="lazy" decoding="async" sizes="(min-width: 1000px) 33vw, (min-width: 620px) 50vw, 100vw" onerror="this.style.display='none'">
+              <span class="portfolio-index" aria-hidden="true">04</span>
+              <div class="portfolio-card-body"><p class="portfolio-maker" data-i18n="portfolio.brand.isuzu">Isuzu</p><h3 id="program-n-series">N-Series</h3><span class="portfolio-type" data-i18n="portfolio.type.commercial">Kendaraan komersial</span></div>
+            </article>
+          </li>
+          <li data-reveal style="--i: 4">
+            <article class="portfolio-card" aria-labelledby="program-battery-b20">
+              <img src="https://usra.co.id/images/product/prod5.jpg" alt="Komponen representatif dari program Battery B20" data-i18n-alt="portfolio.image.5" loading="lazy" decoding="async" sizes="(min-width: 1000px) 33vw, (min-width: 620px) 50vw, 100vw" onerror="this.style.display='none'">
+              <span class="portfolio-index" aria-hidden="true">05</span>
+              <div class="portfolio-card-body"><p class="portfolio-maker" data-i18n="portfolio.brand.component">Program komponen</p><h3 id="program-battery-b20">Battery B20</h3><span class="portfolio-type" data-i18n="portfolio.type.component">Portofolio komponen</span></div>
+            </article>
+          </li>
+          <li data-reveal style="--i: 5">
+            <article class="portfolio-card" aria-labelledby="program-colt-l300">
+              <img src="https://usra.co.id/images/product/prod6.jpg" alt="Komponen representatif untuk program Mitsubishi Motors Colt L300" data-i18n-alt="portfolio.image.6" loading="lazy" decoding="async" sizes="(min-width: 1000px) 33vw, (min-width: 620px) 50vw, 100vw" onerror="this.style.display='none'">
+              <span class="portfolio-index" aria-hidden="true">06</span>
+              <div class="portfolio-card-body"><p class="portfolio-maker" data-i18n="portfolio.brand.mitsubishi">Mitsubishi Motors</p><h3 id="program-colt-l300">Colt L300</h3><span class="portfolio-type" data-i18n="portfolio.type.commercial">Kendaraan komersial</span></div>
+            </article>
+          </li>
+        </ul>
+
+        <p class="portfolio-note" data-i18n="portfolio.note">Program yang ditampilkan bersifat representatif; spesifikasi detail part dan material tersedia berdasarkan permintaan.</p>
+      </div>
+    </section>
+
     <section class="section responsibility" id="quality" aria-labelledby="quality-title">
       <div class="container">
-        <div class="section-heading" data-reveal><span class="eyebrow dark">03 — Responsible operations</span><h2 id="quality-title">Quality is a habit,<br><span>not a checkpoint.</span></h2><p>Proses yang rapi memberi ruang bagi tim untuk bekerja lebih aman, lebih konsisten, dan terus membaik.</p></div>
+        <div class="section-heading" data-reveal><span class="eyebrow dark" data-i18n="quality.eyebrow">03 — Operasi bertanggung jawab</span><h2 id="quality-title"><span data-i18n="quality.title.before">Kualitas adalah kebiasaan,</span><br><span data-i18n="quality.title.after">bukan sekadar pemeriksaan.</span></h2><p data-i18n="quality.intro">Proses yang rapi memberi ruang bagi tim untuk bekerja lebih aman, lebih konsisten, dan terus membaik.</p></div>
         <div class="responsibility-grid">
           <div class="responsibility-visual" data-reveal="fade-right">
-            <img src="https://usra.co.id/images/about/about01.JPG" alt="Tim dan fasilitas quality engineering Usra" loading="lazy" onerror="this.style.display='none'">
-            <div class="visual-caption"><strong>Usra standard</strong><span>Measured · Traceable · Better</span></div>
+            <img src="https://usra.co.id/images/about/about01.JPG" alt="Tim dan fasilitas quality engineering Usra" data-i18n-alt="image.quality" loading="lazy" onerror="this.style.display='none'">
+            <div class="visual-caption"><strong data-i18n="quality.visual.title">Standar Usra</strong><span data-i18n="quality.visual.meta">Terukur · Terlacak · Lebih baik</span></div>
           </div>
           <div class="responsibility-list">
-            <article class="responsibility-row" data-reveal style="--i: 0"><strong>01</strong><h3>Quality first</h3><p>Parameter proses, first article, dan inspeksi berjalan dalam satu sistem mutu yang bisa ditelusuri.</p></article>
-            <article class="responsibility-row" data-reveal="fade-left" style="--i: 1"><strong>02</strong><h3>Safer by design</h3><p>Lingkungan kerja yang tertib membantu orang bekerja dengan fokus — dan pulang dengan selamat.</p></article>
-            <article class="responsibility-row" data-reveal style="--i: 2"><strong>03</strong><h3>Continuous improvement</h3><p>Data dari setiap cycle menjadi bahan perbaikan berikutnya, bukan sekadar laporan akhir.</p></article>
-            <article class="responsibility-row" data-reveal="fade-left" style="--i: 3"><strong>04</strong><h3>Partner mindset</h3><p>Kami berkomunikasi terbuka sejak awal agar keputusan teknis tidak menjadi kejutan di line.</p></article>
+            <article class="responsibility-row" data-reveal style="--i: 0"><strong>01</strong><h3 data-i18n="quality.row.1.title">Kualitas lebih dulu</h3><p data-i18n="quality.row.1.copy">Parameter proses, first article, dan inspeksi berjalan dalam satu sistem mutu yang bisa ditelusuri.</p></article>
+            <article class="responsibility-row" data-reveal="fade-left" style="--i: 1"><strong>02</strong><h3 data-i18n="quality.row.2.title">Aman sejak desain</h3><p data-i18n="quality.row.2.copy">Lingkungan kerja yang tertib membantu orang bekerja dengan fokus — dan pulang dengan selamat.</p></article>
+            <article class="responsibility-row" data-reveal style="--i: 2"><strong>03</strong><h3 data-i18n="quality.row.3.title">Perbaikan berkelanjutan</h3><p data-i18n="quality.row.3.copy">Data dari setiap cycle menjadi bahan perbaikan berikutnya, bukan sekadar laporan akhir.</p></article>
+            <article class="responsibility-row" data-reveal="fade-left" style="--i: 3"><strong>04</strong><h3 data-i18n="quality.row.4.title">Berpikir sebagai mitra</h3><p data-i18n="quality.row.4.copy">Kami berkomunikasi terbuka sejak awal agar keputusan teknis tidak menjadi kejutan di line.</p></article>
           </div>
         </div>
       </div>
@@ -540,26 +708,26 @@
     <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="container contact-grid">
         <div class="contact-copy" data-reveal>
-          <span class="eyebrow light">04 — Let’s talk</span>
-          <h2 id="contact-title">Build the next<br><span>run with us.</span></h2>
-          <p>Ceritakan kebutuhan mould trial, produksi massal, atau assembly Anda. Tim kami akan merespons dengan konteks teknis yang jelas.</p>
+          <span class="eyebrow light" data-i18n="contact.eyebrow">04 — Mari berdiskusi</span>
+          <h2 id="contact-title"><span data-i18n="contact.title.before">Bangun produksi</span><br><span data-i18n="contact.title.after">berikutnya bersama kami.</span></h2>
+          <p data-i18n="contact.intro">Ceritakan kebutuhan mould trial, produksi massal, atau assembly Anda. Tim kami akan merespons dengan konteks teknis yang jelas.</p>
           <div class="contact-details">
-            <div class="contact-detail"><span class="contact-icon" aria-hidden="true">↗</span><div><small>Telepon</small><a href="tel:+622189346030">+62 21 8934 630</a></div></div>
-            <div class="contact-detail"><span class="contact-icon" aria-hidden="true">@</span><div><small>Email</small><a href="mailto:usra@cbn.net.id">usra@cbn.net.id</a></div></div>
-            <div class="contact-detail"><span class="contact-icon" aria-hidden="true">⌖</span><div><small>Facility</small><span>Jababeka, Cikarang · Jawa Barat</span></div></div>
+            <div class="contact-detail"><span class="contact-icon" aria-hidden="true">↗</span><div><small data-i18n="contact.phone.label">Telepon</small><a href="tel:+622189346030">+62 21 8934 630</a></div></div>
+            <div class="contact-detail"><span class="contact-icon" aria-hidden="true">@</span><div><small data-i18n="contact.email.label">Email</small><a href="mailto:usra@cbn.net.id">usra@cbn.net.id</a></div></div>
+            <div class="contact-detail"><span class="contact-icon" aria-hidden="true">⌖</span><div><small data-i18n="contact.facility.label">Fasilitas</small><span data-i18n="contact.facility.value">Jababeka, Cikarang · Jawa Barat</span></div></div>
           </div>
         </div>
         <form class="contact-form" id="rfq-form" action="mailto:usra@cbn.net.id" method="post" enctype="text/plain" data-reveal="fade-left" style="--i: 1">
-          <div class="form-heading"><h3>Mulai percakapan</h3><p><span style="color:var(--teal)">*</span> Wajib diisi</p></div>
+          <div class="form-heading"><h3 data-i18n="form.title">Mulai percakapan</h3><p><span style="color:var(--teal)">*</span> <span data-i18n="form.required">Wajib diisi</span></p></div>
           <div class="form-grid">
-            <div class="field"><label for="name">Nama <span>*</span></label><input id="name" name="name" type="text" required autocomplete="name" placeholder="Nama lengkap"></div>
-            <div class="field"><label for="company">Perusahaan <span>*</span></label><input id="company" name="company" type="text" required autocomplete="organization" placeholder="Nama perusahaan"></div>
-            <div class="field"><label for="email">Email <span>*</span></label><input id="email" name="email" type="email" required autocomplete="email" placeholder="nama@perusahaan.com"></div>
-            <div class="field"><label for="phone">Nomor telepon</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+62 ..."></div>
-            <div class="field full"><label for="need">Kebutuhan utama</label><select id="need" name="need"><option value="">Pilih salah satu</option><option>Injection moulding</option><option>Press forming</option><option>Assembly</option><option>Quality engineering</option></select></div>
-            <div class="field full"><label for="message">Pesan <span>*</span></label><textarea id="message" name="message" required placeholder="Ceritakan tipe komponen, target produksi, atau kebutuhan teknis Anda."></textarea></div>
+            <div class="field"><label for="name"><span data-i18n="form.name.label">Nama</span> <span>*</span></label><input id="name" name="name" type="text" required autocomplete="name" data-i18n-placeholder="form.name.placeholder" placeholder="Nama lengkap"></div>
+            <div class="field"><label for="company"><span data-i18n="form.company.label">Perusahaan</span> <span>*</span></label><input id="company" name="company" type="text" required autocomplete="organization" data-i18n-placeholder="form.company.placeholder" placeholder="Nama perusahaan"></div>
+            <div class="field"><label for="email"><span data-i18n="form.email.label">Email</span> <span>*</span></label><input id="email" name="email" type="email" required autocomplete="email" data-i18n-placeholder="form.email.placeholder" placeholder="nama@perusahaan.com"></div>
+            <div class="field"><label for="phone" data-i18n="form.phone.label">Nomor telepon</label><input id="phone" name="phone" type="tel" autocomplete="tel" data-i18n-placeholder="form.phone.placeholder" placeholder="+62 ..."></div>
+            <div class="field full"><label for="need" data-i18n="form.need.label">Kebutuhan utama</label><select id="need" name="need"><option value="" data-i18n="form.need.placeholder">Pilih salah satu</option><option value="injection" data-i18n="cap.1.title">Injection moulding</option><option value="forming" data-i18n="cap.2.title">Press forming</option><option value="assembly" data-i18n="cap.3.title">Assembly line</option><option value="quality" data-i18n="cap.4.title">Quality engineering</option></select></div>
+            <div class="field full"><label for="message"><span data-i18n="form.message.label">Pesan</span> <span>*</span></label><textarea id="message" name="message" required data-i18n-placeholder="form.message.placeholder" placeholder="Ceritakan tipe komponen, target produksi, atau kebutuhan teknis Anda."></textarea></div>
           </div>
-          <div class="form-bottom"><p class="form-note">Tombol ini akan membuka aplikasi email Anda dengan ringkasan kebutuhan.</p><button class="form-submit" type="submit">Kirim ringkasan <span aria-hidden="true">↗</span></button></div>
+          <div class="form-bottom"><p class="form-note" data-i18n="form.note">Tombol ini akan membuka aplikasi email Anda dengan ringkasan kebutuhan.</p><button class="form-submit" type="submit"><span data-i18n="form.submit">Kirim ringkasan</span> <span aria-hidden="true">↗</span></button></div>
           <p class="form-status" id="form-status" aria-live="polite"></p>
         </form>
       </div>
@@ -568,13 +736,12 @@
 
   <footer class="site-footer">
     <div class="container footer-main">
-      <div><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="https://usra.co.id/images/logos/usra.png" alt="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="brand-fallback" hidden>UT</span></span><span><span class="brand-name">USRA TAMPI</span><span class="brand-sub">INDONESIA</span></span></a><p class="footer-copy">Precision manufacturing partner untuk industri otomotif Indonesia sejak 1994.</p></div>
-      <div><p class="footer-heading">Explore</p><nav class="footer-links" aria-label="Navigasi footer"><a href="#story">About us</a><a href="#capabilities">Capabilities</a><a href="#quality">Quality</a><a href="#contact">Contact</a></nav></div>
-      <div><p class="footer-heading">Visit us</p><div class="footer-links"><a href="mailto:usra@cbn.net.id">usra@cbn.net.id</a><a href="tel:+622189346030">+62 21 8934 630</a><span>Jababeka, Cikarang<br>Jawa Barat</span></div></div>
+      <div><a class="brand footer-brand" href="#home" data-i18n-aria="brand.home"><span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="https://usra.co.id/images/logos/usra.png" alt="" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="brand-fallback" hidden>UT</span></span><span><span class="brand-name">USRA TAMPI</span><span class="brand-sub">INDONESIA</span></span></a><p class="footer-copy" data-i18n="footer.copy">Mitra manufaktur presisi untuk industri otomotif Indonesia sejak 1994.</p></div>
+      <div><p class="footer-heading" data-i18n="footer.explore">Jelajahi</p><nav class="footer-links" data-i18n-aria="footer.nav" aria-label="Navigasi footer"><a href="#story" data-i18n="nav.about">Tentang kami</a><a href="#capabilities" data-i18n="nav.capabilities">Kapabilitas</a><a href="#quality" data-i18n="nav.quality">Kualitas</a><a href="#contact" data-i18n="nav.contact">Kontak</a></nav></div>
+      <div><p class="footer-heading" data-i18n="footer.visit">Kunjungi kami</p><div class="footer-links"><a href="mailto:usra@cbn.net.id">usra@cbn.net.id</a><a href="tel:+622189346030">+62 21 8934 630</a><span data-i18n="contact.facility.value">Jababeka, Cikarang · Jawa Barat</span></div></div>
     </div>
-    <div class="container footer-bottom"><p>© <span id="current-year">2026</span> PT Usra Tampi Indonesia. All rights reserved.</p><a class="back-top" href="#home">Back to top ↑</a></div>
+    <div class="container footer-bottom"><p>© <span id="current-year">2026</span> PT Usra Tampi Indonesia. <span data-i18n="footer.rights">Hak cipta dilindungi.</span></p><a class="back-top" href="#home"><span data-i18n="footer.top">Kembali ke atas</span> ↑</a></div>
   </footer>
-
   <script>
     (function () {
       var header = document.getElementById('site-header');
@@ -586,6 +753,452 @@
       var heroMedia = document.querySelector('.hero-media');
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var scrollFrame = 0;
+      var hero = document.getElementById('home');
+      var heroCarousel = document.getElementById('hero-carousel');
+      var heroSlides = Array.prototype.slice.call(document.querySelectorAll('[data-hero-slide]'));
+      var heroDots = Array.prototype.slice.call(document.querySelectorAll('[data-hero-dot]'));
+      var heroPrev = document.getElementById('hero-prev');
+      var heroNext = document.getElementById('hero-next');
+      var heroToggle = document.getElementById('hero-toggle');
+      var heroToggleIcon = document.getElementById('hero-toggle-icon');
+      var heroSlideStatus = document.getElementById('hero-slide-status');
+      var heroIndex = 0;
+      var heroTimer = null;
+      var heroUserPaused = reduceMotion;
+      var heroHoverPaused = false;
+      var heroSwipeStartX = null;
+      var translations = {
+        id: {
+          'page.title': 'Usra Tampi — Presisi yang menggerakkan industri',
+          'page.description': 'PT Usra Tampi Indonesia — mitra manufaktur komponen otomotif presisi untuk injection moulding, press forming, assembly, dan quality engineering.',
+          'skip': 'Lewati ke konten utama',
+          'brand.home': 'Usra Tampi Indonesia, beranda',
+          'language.label': 'Pilih bahasa',
+          'nav.label': 'Navigasi utama',
+          'footer.nav': 'Navigasi footer',
+          'nav.about': 'Tentang kami',
+          'nav.capabilities': 'Kapabilitas',
+          'nav.quality': 'Kualitas',
+          'nav.contact': 'Kontak',
+          'menu.open': 'Buka menu',
+          'menu.close': 'Tutup menu',
+          'cta.start': 'Mulai percakapan',
+          'hero.eyebrow': 'Manufaktur presisi · Cikarang',
+          'hero.title.before': 'Presisi yang ',
+          'hero.title.em': 'menggerakkan',
+          'hero.title.after': ' industri.',
+          'hero.lede': 'Dari trial mould hingga produksi massal, kami membantu brand otomotif menjaga setiap komponen tetap konsisten, aman, dan siap melaju.',
+          'hero.cta.primary': 'Jelajahi kapabilitas',
+          'hero.cta.secondary': 'Kenali Usra',
+          'hero.carousel.label': 'Kontrol galeri hero',
+          'hero.dots.label': 'Pilih gambar hero',
+          'hero.prev': 'Gambar sebelumnya',
+          'hero.next': 'Gambar berikutnya',
+          'hero.pause': 'Jeda pergantian gambar',
+          'hero.play': 'Putar pergantian gambar',
+          'hero.slide.1': 'Tampilkan gambar fasilitas produksi',
+          'hero.slide.2': 'Tampilkan gambar inspeksi kualitas',
+          'hero.slide.3': 'Tampilkan gambar tim Usra',
+          'hero.slideStatus': 'Gambar {index} dari {total}',
+          'hero.meta.label': 'Fakta singkat Usra',
+          'hero.scroll': 'Gulir untuk menjelajah',
+          'hero.meta.years': 'tahun pengalaman',
+          'hero.meta.machines': 'mesin injection',
+          'hero.meta.force': 'clamping force',
+          'hero.side.label': 'Siap produksi',
+          'hero.side.title': 'Satu mitra yang bertanggung jawab untuk setiap langkah berikutnya.',
+          'hero.side.list': 'Injection moulding · Press forming · Assembly · Quality engineering',
+          'partners.label': 'Mitra industri',
+          'partners.scroller': 'Geser untuk melihat mitra industri',
+          'partners.caption': 'Dipercaya oleh mitra industri',
+          'about.eyebrow': '01 — Tentang kami',
+          'about.title.before': 'Dibangun dengan disiplin.',
+          'about.title.after': 'Siap untuk langkah berikutnya.',
+          'about.copy': 'PT Usra Tampi Indonesia tumbuh dari satu tujuan sederhana: membantu industri otomotif bergerak lebih baik. Hari ini, satu fasilitas terpadu kami menghubungkan mould trial, produksi, assembly, dan inspeksi dalam satu alur yang terukur.',
+          'about.link': 'Cara kami menjaga kualitas',
+          'about.established': 'Berdiri di Cikarang',
+          'stats.years': 'Tahun pengalaman manufaktur',
+          'stats.label': 'Angka penting Usra',
+          'stats.machines': 'Mesin injection beroperasi',
+          'stats.force': 'Clamping force maksimum',
+          'stats.certified': 'Sistem mutu tersertifikasi',
+          'capabilities.eyebrow': '02 — Kapabilitas',
+          'capabilities.title.before': 'Empat kapabilitas.',
+          'capabilities.title.after': 'Satu mitra yang bertanggung jawab.',
+          'capabilities.intro': 'Skala boleh besar. Koordinasi tetap terasa dekat — dari spesifikasi awal sampai part siap masuk line.',
+          'cap.1.title': 'Injection moulding',
+          'cap.1.copy': 'Trial mould hingga volume tinggi dengan kontrol proses yang konsisten.',
+          'cap.2.title': 'Press forming',
+          'cap.2.copy': 'Forming dan hot lamination untuk struktur, trim, dan surface finish.',
+          'cap.3.title': 'Assembly line',
+          'cap.3.copy': 'Perakitan komponen yang siap mengikuti kebutuhan line-side OEM.',
+          'cap.4.title': 'Quality engineering',
+          'cap.4.copy': 'Inspeksi first article dan traceability untuk menjaga setiap batch.',
+          'cap.tag.mass': 'Produksi massal',
+          'cap.tag.finish': 'Finishing',
+          'cap.tag.ready': 'Siap line-side',
+          'portfolio.eyebrow': 'Portofolio produksi',
+          'portfolio.title': 'Program OEM pilihan.',
+          'portfolio.intro': 'Pilihan representatif platform kendaraan dan program komponen yang didukung oleh operasi injection moulding, press forming, dan assembly kami di Cikarang.',
+          'portfolio.cta': 'Diskusikan program Anda berikutnya',
+          'portfolio.list.label': 'Program OEM pilihan',
+          'portfolio.brand.mitsubishi': 'Mitsubishi Motors',
+          'portfolio.brand.fuso': 'Mitsubishi Fuso',
+          'portfolio.brand.isuzu': 'Isuzu',
+          'portfolio.brand.component': 'Program komponen',
+          'portfolio.type.passenger': 'Kendaraan penumpang',
+          'portfolio.type.commercial': 'Kendaraan komersial',
+          'portfolio.type.component': 'Portofolio komponen',
+          'portfolio.note': 'Program yang ditampilkan bersifat representatif; spesifikasi detail part dan material tersedia berdasarkan permintaan.',
+          'portfolio.image.1': 'Komponen representatif untuk program Mitsubishi Motors Outlander',
+          'portfolio.image.2': 'Komponen representatif untuk program Mitsubishi Motors Xpander',
+          'portfolio.image.3': 'Komponen representatif untuk program Mitsubishi Fuso New Canter',
+          'portfolio.image.4': 'Komponen representatif untuk program Isuzu N-Series',
+          'portfolio.image.5': 'Komponen representatif dari program Battery B20',
+          'portfolio.image.6': 'Komponen representatif untuk program Mitsubishi Motors Colt L300',
+          'quality.eyebrow': '03 — Operasi bertanggung jawab',
+          'quality.title.before': 'Kualitas adalah kebiasaan,',
+          'quality.title.after': 'bukan sekadar pemeriksaan.',
+          'quality.intro': 'Proses yang rapi memberi ruang bagi tim untuk bekerja lebih aman, lebih konsisten, dan terus membaik.',
+          'quality.visual.title': 'Standar Usra',
+          'quality.visual.meta': 'Terukur · Terlacak · Lebih baik',
+          'quality.row.1.title': 'Kualitas lebih dulu',
+          'quality.row.1.copy': 'Parameter proses, first article, dan inspeksi berjalan dalam satu sistem mutu yang bisa ditelusuri.',
+          'quality.row.2.title': 'Aman sejak desain',
+          'quality.row.2.copy': 'Lingkungan kerja yang tertib membantu orang bekerja dengan fokus — dan pulang dengan selamat.',
+          'quality.row.3.title': 'Perbaikan berkelanjutan',
+          'quality.row.3.copy': 'Data dari setiap cycle menjadi bahan perbaikan berikutnya, bukan sekadar laporan akhir.',
+          'quality.row.4.title': 'Berpikir sebagai mitra',
+          'quality.row.4.copy': 'Kami berkomunikasi terbuka sejak awal agar keputusan teknis tidak menjadi kejutan di line.',
+          'contact.eyebrow': '04 — Mari berdiskusi',
+          'contact.title.before': 'Bangun produksi',
+          'contact.title.after': 'berikutnya bersama kami.',
+          'contact.intro': 'Ceritakan kebutuhan mould trial, produksi massal, atau assembly Anda. Tim kami akan merespons dengan konteks teknis yang jelas.',
+          'contact.phone.label': 'Telepon',
+          'contact.email.label': 'Email',
+          'contact.facility.label': 'Fasilitas',
+          'contact.facility.value': 'Jababeka, Cikarang · Jawa Barat',
+          'form.title': 'Mulai percakapan',
+          'form.required': 'Wajib diisi',
+          'form.name.label': 'Nama',
+          'form.name.placeholder': 'Nama lengkap',
+          'form.company.label': 'Perusahaan',
+          'form.company.placeholder': 'Nama perusahaan',
+          'form.email.label': 'Email',
+          'form.email.placeholder': 'nama@perusahaan.com',
+          'form.phone.label': 'Nomor telepon',
+          'form.phone.placeholder': '+62 ...',
+          'form.need.label': 'Kebutuhan utama',
+          'form.need.placeholder': 'Pilih salah satu',
+          'form.message.label': 'Pesan',
+          'form.message.placeholder': 'Ceritakan tipe komponen, target produksi, atau kebutuhan teknis Anda.',
+          'form.note': 'Tombol ini akan membuka aplikasi email Anda dengan ringkasan kebutuhan.',
+          'form.submit': 'Kirim ringkasan',
+          'form.opening': 'Membuka aplikasi email Anda…',
+          'mail.name': 'Nama',
+          'mail.company': 'Perusahaan',
+          'mail.email': 'Email',
+          'mail.phone': 'Telepon',
+          'mail.need': 'Kebutuhan',
+          'mail.message': 'Pesan',
+          'mail.subject': 'Permintaan penawaran',
+          'footer.copy': 'Mitra manufaktur presisi untuk industri otomotif Indonesia sejak 1994.',
+          'footer.explore': 'Jelajahi',
+          'footer.visit': 'Kunjungi kami',
+          'footer.rights': 'Hak cipta dilindungi.',
+          'footer.top': 'Kembali ke atas',
+          'image.about': 'Fasilitas produksi PT Usra Tampi Indonesia di Cikarang',
+          'image.cap1': 'Mesin injection moulding di fasilitas Usra',
+          'image.cap2': 'Proses press forming dan hot lamination',
+          'image.cap3': 'Aktivitas assembly line komponen otomotif',
+          'image.cap4': 'Inspeksi kualitas komponen di fasilitas Usra',
+          'image.quality': 'Tim dan fasilitas quality engineering Usra'
+        },
+        en: {
+          'page.title': 'Usra Tampi — Precision that moves industry',
+          'page.description': 'PT Usra Tampi Indonesia — precision automotive component manufacturing partner for injection moulding, press forming, assembly, and quality engineering.',
+          'skip': 'Skip to main content',
+          'brand.home': 'Usra Tampi Indonesia, home',
+          'language.label': 'Choose language',
+          'nav.label': 'Main navigation',
+          'footer.nav': 'Footer navigation',
+          'nav.about': 'About us',
+          'nav.capabilities': 'Capabilities',
+          'nav.quality': 'Quality',
+          'nav.contact': 'Contact',
+          'menu.open': 'Open menu',
+          'menu.close': 'Close menu',
+          'cta.start': 'Start a conversation',
+          'hero.eyebrow': 'Precision manufacturing · Cikarang',
+          'hero.title.before': 'Precision that ',
+          'hero.title.em': 'moves',
+          'hero.title.after': ' industry.',
+          'hero.lede': 'From mould trials to mass production, we help automotive brands keep every component consistent, safe, and ready to move.',
+          'hero.cta.primary': 'Explore capabilities',
+          'hero.cta.secondary': 'Meet Usra',
+          'hero.carousel.label': 'Hero gallery controls',
+          'hero.dots.label': 'Choose a hero image',
+          'hero.prev': 'Previous image',
+          'hero.next': 'Next image',
+          'hero.pause': 'Pause image rotation',
+          'hero.play': 'Play image rotation',
+          'hero.slide.1': 'Show production facility image',
+          'hero.slide.2': 'Show quality inspection image',
+          'hero.slide.3': 'Show Usra team image',
+          'hero.slideStatus': 'Image {index} of {total}',
+          'hero.meta.label': 'Usra at a glance',
+          'hero.scroll': 'Scroll to explore',
+          'hero.meta.years': 'years of experience',
+          'hero.meta.machines': 'injection machines',
+          'hero.meta.force': 'clamping force',
+          'hero.side.label': 'Production ready',
+          'hero.side.title': 'One accountable partner for every next move.',
+          'hero.side.list': 'Injection moulding · Press forming · Assembly · Quality engineering',
+          'partners.label': 'Industry partners',
+          'partners.scroller': 'Scroll to view industry partners',
+          'partners.caption': 'Trusted by industry partners',
+          'about.eyebrow': '01 — About us',
+          'about.title.before': 'Built on discipline.',
+          'about.title.after': 'Ready for what’s next.',
+          'about.copy': 'PT Usra Tampi Indonesia grew from one simple goal: helping the automotive industry move better. Today, one integrated facility connects mould trials, production, assembly, and inspection in a measurable flow.',
+          'about.link': 'How we protect quality',
+          'about.established': 'Est. Cikarang',
+          'stats.years': 'Years of manufacturing experience',
+          'stats.label': 'Usra key figures',
+          'stats.machines': 'Injection machines in operation',
+          'stats.force': 'Maximum clamping force',
+          'stats.certified': 'Certified quality systems',
+          'capabilities.eyebrow': '02 — Capabilities',
+          'capabilities.title.before': 'Four capabilities.',
+          'capabilities.title.after': 'One accountable partner.',
+          'capabilities.intro': 'Scale can be large. Coordination stays close — from the first specification to a part ready for the line.',
+          'cap.1.title': 'Injection moulding',
+          'cap.1.copy': 'From mould trials to high-volume production with consistent process control.',
+          'cap.2.title': 'Press forming',
+          'cap.2.copy': 'Forming and hot lamination for structures, trim, and surface finish.',
+          'cap.3.title': 'Assembly line',
+          'cap.3.copy': 'Component assembly ready for OEM line-side requirements.',
+          'cap.4.title': 'Quality engineering',
+          'cap.4.copy': 'First-article inspection and traceability to protect every batch.',
+          'cap.tag.mass': 'Mass production',
+          'cap.tag.finish': 'Finishing',
+          'cap.tag.ready': 'Line-side ready',
+          'portfolio.eyebrow': 'Production portfolio',
+          'portfolio.title': 'Selected OEM programs.',
+          'portfolio.intro': 'A representative selection of vehicle platforms and component programs supported by our injection moulding, press forming, and assembly operations in Cikarang.',
+          'portfolio.cta': 'Discuss your next program',
+          'portfolio.list.label': 'Selected OEM programs',
+          'portfolio.brand.mitsubishi': 'Mitsubishi Motors',
+          'portfolio.brand.fuso': 'Mitsubishi Fuso',
+          'portfolio.brand.isuzu': 'Isuzu',
+          'portfolio.brand.component': 'Component program',
+          'portfolio.type.passenger': 'Passenger vehicle',
+          'portfolio.type.commercial': 'Commercial vehicle',
+          'portfolio.type.component': 'Component portfolio',
+          'portfolio.note': 'Representative programs; detailed part and material specifications are available on request.',
+          'portfolio.image.1': 'Representative component associated with Mitsubishi Motors Outlander',
+          'portfolio.image.2': 'Representative component associated with Mitsubishi Motors Xpander',
+          'portfolio.image.3': 'Representative component associated with Mitsubishi Fuso New Canter',
+          'portfolio.image.4': 'Representative component associated with Isuzu N-Series',
+          'portfolio.image.5': 'Representative component from the Battery B20 program',
+          'portfolio.image.6': 'Representative component associated with Mitsubishi Motors Colt L300',
+          'quality.eyebrow': '03 — Responsible operations',
+          'quality.title.before': 'Quality is a habit,',
+          'quality.title.after': 'not a checkpoint.',
+          'quality.intro': 'A disciplined process gives our teams room to work more safely, consistently, and better every day.',
+          'quality.visual.title': 'Usra standard',
+          'quality.visual.meta': 'Measured · Traceable · Better',
+          'quality.row.1.title': 'Quality first',
+          'quality.row.1.copy': 'Process parameters, first articles, and inspection run in one traceable quality system.',
+          'quality.row.2.title': 'Safer by design',
+          'quality.row.2.copy': 'An orderly workplace helps people stay focused — and go home safely.',
+          'quality.row.3.title': 'Continuous improvement',
+          'quality.row.3.copy': 'Data from every cycle becomes input for the next improvement, not just a final report.',
+          'quality.row.4.title': 'Partner mindset',
+          'quality.row.4.copy': 'We communicate openly from the start so technical decisions never become surprises on the line.',
+          'contact.eyebrow': '04 — Let’s talk',
+          'contact.title.before': 'Build the next',
+          'contact.title.after': 'run with us.',
+          'contact.intro': 'Tell us about your mould trial, mass production, or assembly needs. Our team will respond with clear technical context.',
+          'contact.phone.label': 'Phone',
+          'contact.email.label': 'Email',
+          'contact.facility.label': 'Facility',
+          'contact.facility.value': 'Jababeka, Cikarang · West Java',
+          'form.title': 'Start a conversation',
+          'form.required': 'Required',
+          'form.name.label': 'Name',
+          'form.name.placeholder': 'Full name',
+          'form.company.label': 'Company',
+          'form.company.placeholder': 'Company name',
+          'form.email.label': 'Email',
+          'form.email.placeholder': 'name@company.com',
+          'form.phone.label': 'Phone number',
+          'form.phone.placeholder': '+62 ...',
+          'form.need.label': 'Primary need',
+          'form.need.placeholder': 'Select one',
+          'form.message.label': 'Message',
+          'form.message.placeholder': 'Tell us about the component type, production target, or technical requirement.',
+          'form.note': 'This button opens your email app with a prepared summary of your requirements.',
+          'form.submit': 'Send summary',
+          'form.opening': 'Opening your email app…',
+          'mail.name': 'Name',
+          'mail.company': 'Company',
+          'mail.email': 'Email',
+          'mail.phone': 'Phone',
+          'mail.need': 'Need',
+          'mail.message': 'Message',
+          'mail.subject': 'Quotation request',
+          'footer.copy': 'Precision manufacturing partner for Indonesia’s automotive industry since 1994.',
+          'footer.explore': 'Explore',
+          'footer.visit': 'Visit us',
+          'footer.rights': 'All rights reserved.',
+          'footer.top': 'Back to top',
+          'image.about': 'PT Usra Tampi Indonesia production facility in Cikarang',
+          'image.cap1': 'Injection moulding machine at the Usra facility',
+          'image.cap2': 'Press forming and hot lamination process',
+          'image.cap3': 'Automotive component assembly line activity',
+          'image.cap4': 'Component quality inspection at the Usra facility',
+          'image.quality': 'Usra quality engineering team and facility'
+        }
+      };
+      var currentLanguage = 'id';
+      try { currentLanguage = localStorage.getItem('usra-language') || 'id'; } catch (error) { currentLanguage = 'id'; }
+      if (!translations[currentLanguage]) currentLanguage = 'id';
+      function t(key) { return translations[currentLanguage][key] || translations.id[key] || key; }
+      function applyLanguage(language) {
+        currentLanguage = translations[language] ? language : 'id';
+        document.documentElement.lang = currentLanguage;
+        document.title = t('page.title');
+        var description = document.querySelector('meta[name="description"]');
+        if (description) description.setAttribute('content', t('page.description'));
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', t('page.title'));
+        var ogDescription = document.querySelector('meta[property="og:description"]');
+        if (ogDescription) ogDescription.setAttribute('content', t('page.description'));
+        document.querySelectorAll('[data-i18n]').forEach(function (element) {
+          var value = t(element.getAttribute('data-i18n'));
+          if (value !== undefined) element.textContent = value;
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (element) {
+          element.setAttribute('placeholder', t(element.getAttribute('data-i18n-placeholder')));
+        });
+        document.querySelectorAll('[data-i18n-aria]').forEach(function (element) {
+          element.setAttribute('aria-label', t(element.getAttribute('data-i18n-aria')));
+        });
+        if (menuToggle) menuToggle.setAttribute('aria-label', menuToggle.getAttribute('aria-expanded') === 'true' ? t('menu.close') : t('menu.open'));
+        document.querySelectorAll('[data-i18n-alt]').forEach(function (element) {
+          element.setAttribute('alt', t(element.getAttribute('data-i18n-alt')));
+        });
+        if (status && status.dataset.i18nKey) status.textContent = t(status.dataset.i18nKey);
+        if (heroSlideStatus && heroSlides.length) heroSlideStatus.textContent = t('hero.slideStatus').replace('{index}', String(heroIndex + 1)).replace('{total}', String(heroSlides.length));
+        document.querySelectorAll('[data-lang]').forEach(function (button) {
+          var active = button.getAttribute('data-lang') === currentLanguage;
+          button.setAttribute('aria-pressed', String(active));
+          button.classList.toggle('is-active', active);
+        });
+        var numberLocale = currentLanguage === 'en' ? 'en-US' : 'id-ID';
+        document.querySelectorAll('[data-count]').forEach(function (element) {
+          var target = Number(element.getAttribute('data-count')) || 0;
+          var suffix = element.getAttribute('data-suffix') || '';
+          element.textContent = target.toLocaleString(numberLocale) + suffix;
+        });
+        try { localStorage.setItem('usra-language', currentLanguage); } catch (error) { /* storage is optional */ }
+      }
+      document.querySelectorAll('[data-lang]').forEach(function (button) {
+        button.addEventListener('click', function () { applyLanguage(button.getAttribute('data-lang')); });
+      });
+      applyLanguage(currentLanguage);
+
+      function stopHeroAutoplay() {
+        if (heroTimer) {
+          window.clearInterval(heroTimer);
+          heroTimer = null;
+        }
+      }
+      function startHeroAutoplay() {
+        stopHeroAutoplay();
+        if (reduceMotion || heroUserPaused || heroHoverPaused || document.hidden || heroSlides.length < 2) return;
+        heroTimer = window.setInterval(function () { showHero(heroIndex + 1); }, 6500);
+      }
+      function updateHeroStatus() {
+        if (!heroSlideStatus || !heroSlides.length) return;
+        heroSlideStatus.textContent = t('hero.slideStatus').replace('{index}', String(heroIndex + 1)).replace('{total}', String(heroSlides.length));
+      }
+      function showHero(index) {
+        if (!heroSlides.length) return;
+        heroIndex = (index + heroSlides.length) % heroSlides.length;
+        heroSlides.forEach(function (slide, slideIndex) {
+          var active = slideIndex === heroIndex;
+          slide.classList.toggle('is-active', active);
+          slide.setAttribute('aria-hidden', String(!active));
+        });
+        var activeImage = heroSlides[heroIndex].querySelector('img');
+        if (activeImage && !reduceMotion) {
+          activeImage.style.animation = 'none';
+          void activeImage.offsetWidth;
+          activeImage.style.animation = '';
+        }
+        heroDots.forEach(function (dot, dotIndex) {
+          dot.setAttribute('aria-current', String(dotIndex === heroIndex));
+        });
+        updateHeroStatus();
+        startHeroAutoplay();
+      }
+      function setHeroPaused(paused) {
+        paused = Boolean(paused) || reduceMotion;
+        heroUserPaused = paused;
+        if (heroToggle) {
+          heroToggle.setAttribute('aria-pressed', String(paused));
+          heroToggle.setAttribute('data-i18n-aria', paused ? 'hero.play' : 'hero.pause');
+          heroToggle.setAttribute('aria-label', t(paused ? 'hero.play' : 'hero.pause'));
+        }
+        if (heroToggleIcon) heroToggleIcon.textContent = paused ? '▶' : 'Ⅱ';
+        if (paused) stopHeroAutoplay();
+        else startHeroAutoplay();
+      }
+      if (heroPrev) heroPrev.addEventListener('click', function () { showHero(heroIndex - 1); });
+      if (heroNext) heroNext.addEventListener('click', function () { showHero(heroIndex + 1); });
+      heroDots.forEach(function (dot) {
+        dot.addEventListener('click', function () { showHero(Number(dot.getAttribute('data-hero-dot')) || 0); });
+      });
+      if (heroToggle) heroToggle.addEventListener('click', function () { setHeroPaused(!heroUserPaused); });
+      if (heroCarousel) {
+        heroCarousel.addEventListener('focusin', function () { heroHoverPaused = true; stopHeroAutoplay(); });
+        heroCarousel.addEventListener('focusout', function (event) {
+          if (!heroCarousel.contains(event.relatedTarget) && (!hero || !hero.matches(':hover'))) {
+            heroHoverPaused = false;
+            startHeroAutoplay();
+          }
+        });
+        heroCarousel.addEventListener('keydown', function (event) {
+          if (event.key === 'ArrowLeft') { event.preventDefault(); showHero(heroIndex - 1); }
+          if (event.key === 'ArrowRight') { event.preventDefault(); showHero(heroIndex + 1); }
+          if (event.key === 'Home') { event.preventDefault(); showHero(0); }
+          if (event.key === 'End') { event.preventDefault(); showHero(heroSlides.length - 1); }
+        });
+      }
+      if (hero) {
+        hero.addEventListener('mouseenter', function () { heroHoverPaused = true; stopHeroAutoplay(); });
+        hero.addEventListener('mouseleave', function () { heroHoverPaused = false; startHeroAutoplay(); });
+        hero.addEventListener('pointerdown', function (event) {
+          if (event.pointerType === 'mouse' && event.button !== 0) return;
+          heroSwipeStartX = event.clientX;
+        });
+        hero.addEventListener('pointerup', function (event) {
+          if (heroSwipeStartX === null) return;
+          var delta = event.clientX - heroSwipeStartX;
+          heroSwipeStartX = null;
+          if (Math.abs(delta) < 45) return;
+          showHero(delta < 0 ? heroIndex + 1 : heroIndex - 1);
+        });
+        hero.addEventListener('pointercancel', function () { heroSwipeStartX = null; });
+      }
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stopHeroAutoplay();
+        else startHeroAutoplay();
+      });
+      setHeroPaused(reduceMotion);
+      showHero(0);
 
       function updateScrollState() {
         var y = window.scrollY || 0;
@@ -611,7 +1224,7 @@
       function setMenu(open) {
         if (!menuToggle || !mobilePanel) return;
         menuToggle.setAttribute('aria-expanded', String(open));
-        menuToggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+        menuToggle.setAttribute('aria-label', open ? t('menu.close') : t('menu.open'));
         mobilePanel.classList.toggle('open', open);
         if (openIcon) openIcon.hidden = open;
         if (closeIcon) closeIcon.hidden = !open;
@@ -640,7 +1253,7 @@
         function tick(now) {
           var progressValue = Math.min(1, (now - start) / duration);
           var eased = 1 - Math.pow(1 - progressValue, 3);
-          el.textContent = Math.round(target * eased).toLocaleString('id-ID') + suffix;
+          el.textContent = Math.round(target * eased).toLocaleString(currentLanguage === 'en' ? 'en-US' : 'id-ID') + suffix;
           if (progressValue < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -707,10 +1320,16 @@
         event.preventDefault();
         if (!form.reportValidity()) return;
         var data = new FormData(form);
-        var company = data.get('company') || 'Perusahaan';
-        var body = ['Nama: ' + (data.get('name') || ''), 'Perusahaan: ' + company, 'Email: ' + (data.get('email') || ''), 'Telepon: ' + (data.get('phone') || ''), 'Kebutuhan: ' + (data.get('need') || ''), '', 'Pesan:', data.get('message') || ''].join('\n');
-        if (status) status.textContent = 'Membuka aplikasi email Anda…';
-        window.location.href = 'mailto:usra@cbn.net.id?subject=' + encodeURIComponent('Permintaan penawaran — ' + company) + '&body=' + encodeURIComponent(body);
+        var company = data.get('company') || t('mail.company');
+        var needValue = data.get('need') || '';
+        var needKey = { injection: 'cap.1.title', forming: 'cap.2.title', assembly: 'cap.3.title', quality: 'cap.4.title' }[needValue];
+        var needLabel = needKey ? t(needKey) : '';
+        var body = [t('mail.name') + ': ' + (data.get('name') || ''), t('mail.company') + ': ' + company, t('mail.email') + ': ' + (data.get('email') || ''), t('mail.phone') + ': ' + (data.get('phone') || ''), t('mail.need') + ': ' + needLabel, '', t('mail.message') + ':', data.get('message') || ''].join('\n');
+        if (status) {
+          status.dataset.i18nKey = 'form.opening';
+          status.textContent = t('form.opening');
+        }
+        window.location.href = 'mailto:usra@cbn.net.id?subject=' + encodeURIComponent(t('mail.subject') + ' — ' + company) + '&body=' + encodeURIComponent(body);
       });
 
       var year = document.getElementById('current-year');
