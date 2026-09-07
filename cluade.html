@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14181C">
+<title>PT. Usra Tampi Indonesia — Precision Plastic Injection Moulding</title>
+<meta name="description" content="PT. Usra Tampi Indonesia adalah produsen komponen plastic injection moulding dan press forming untuk industri otomotif di Cikarang, bersertifikat ISO 9001 dan IATF 16949.">
+<link rel="icon" href="https://usra.co.id/images/logos/usra.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#14181C',
+        graphite: '#1B2126',
+        steel: '#4A5A68',
+        steelLight: '#8B98A3',
+        canvas: '#EEF0EE',
+        paper: '#FFFFFF',
+        amber: '#A65119',
+        amberDark: '#82400F',
+        amberBright: '#E8792E'
+      },
+      fontFamily: {
+        display: ['"Space Grotesk"','sans-serif'],
+        body: ['"IBM Plex Sans"','sans-serif'],
+        mono: ['"IBM Plex Mono"','monospace']
+      }
+    }
+  }
+}
+</script>
+<style>
+html{scroll-behavior:smooth;}
+section[id]{scroll-margin-top:5rem;}
+::selection{background:#E8792E;color:#fff;}
+#navbar{background:transparent;transition:background .35s ease,box-shadow .35s ease;}
+#navbar.nav-solid{background:rgba(20,24,28,.97);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(255,255,255,.06);}
+.nav-link{position:relative;padding-bottom:4px;opacity:.85;}
+.nav-link:hover{opacity:1;}
+.nav-link::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:#E8792E;transition:right .25s ease;}
+.nav-link:hover::after{right:0;}
+.hero-bg{animation:kenburns 22s ease-out forwards;}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.09)}}
+.hero-anim>*{opacity:0;animation:heroUp .9s ease forwards;}
+.hero-anim>*:nth-child(1){animation-delay:.15s}
+.hero-anim>*:nth-child(2){animation-delay:.4s}
+.hero-anim>*:nth-child(3){animation-delay:.65s}
+@keyframes heroUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.blueprint-grid{background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:44px 44px;}
+@keyframes softBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.scroll-cue{animation:softBounce 2.2s ease-in-out infinite;}
+.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite;}
+.marquee-wrap:hover .marquee-track{animation-play-state:paused;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.plate{position:relative;}
+.plate::before,.plate::after{content:"";position:absolute;width:20px;height:20px;border-color:#E8792E;border-style:solid;border-width:0;}
+.plate::before{top:-1px;left:-1px;border-top-width:3px;border-left-width:3px;}
+.plate::after{bottom:-1px;right:-1px;border-bottom-width:3px;border-right-width:3px;}
+.card-business{position:relative;}
+.card-business::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background .3s ease;}
+.card-business:hover::before{background:#E8792E;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in-view{opacity:1;transform:none;}
+.footer-link{transition:color .2s ease;}
+.footer-link:hover{color:#E8792E;}
+a:focus-visible,button:focus-visible{outline:2px solid #E8792E;outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){
+*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body class="font-body text-ink bg-canvas antialiased overflow-x-hidden">
+
+<header id="navbar" class="fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center">
+      <img src="https://usra.co.id/images/logos/usra.png" alt="Usra Tampi Indonesia" class="h-8 w-auto brightness-0 invert">
+    </a>
+    <nav class="hidden lg:flex items-center gap-9 text-sm font-medium text-white">
+      <a href="#lini-bisnis" class="nav-link">Lini Bisnis</a>
+      <a href="#produk" class="nav-link">Produk</a>
+      <a href="#tentang" class="nav-link">Tentang Kami</a>
+      <a href="#kualitas" class="nav-link">Kualitas</a>
+      <a href="#kontak" class="nav-link">Kontak</a>
+    </nav>
+    <a href="#kontak" class="hidden lg:inline-flex bg-amber hover:bg-amberDark text-white text-sm font-semibold px-5 py-2.5 transition-colors">Hubungi Kami</a>
+    <button type="button" id="menuBtn" aria-label="Buka menu" class="lg:hidden text-white">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden bg-ink px-6 pb-6 pt-2">
+    <a href="#lini-bisnis" class="block py-2.5 text-white/90 text-sm border-b border-white/10">Lini Bisnis</a>
+    <a href="#produk" class="block py-2.5 text-white/90 text-sm border-b border-white/10">Produk</a>
+    <a href="#tentang" class="block py-2.5 text-white/90 text-sm border-b border-white/10">Tentang Kami</a>
+    <a href="#kualitas" class="block py-2.5 text-white/90 text-sm border-b border-white/10">Kualitas</a>
+    <a href="#kontak" class="block mt-3 text-center bg-amber text-white font-semibold text-sm py-3">Hubungi Kami</a>
+  </div>
+</header>
+
+<section id="top" class="relative h-[100svh] min-h-[620px] flex items-end overflow-hidden bg-ink">
+  <div class="absolute inset-0">
+    <img src="https://usra.co.id/images/wp1.jpg" alt="Fasilitas produksi PT. Usra Tampi Indonesia" class="hero-bg w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent"></div>
+    <div class="absolute inset-0 blueprint-grid opacity-20"></div>
+  </div>
+  <div class="hero-anim relative max-w-7xl mx-auto px-6 lg:px-10 pb-20 lg:pb-28 w-full">
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-[1.08] max-w-3xl mb-6">Presisi yang Menggerakkan Industri Otomotif Indonesia</h1>
+    <p class="text-white/80 text-base lg:text-lg max-w-xl mb-9 leading-relaxed">PT. Usra Tampi Indonesia memproduksi komponen plastic injection moulding dan press forming di Kawasan Industri Jababeka, Cikarang — melayani prinsipal otomotif terkemuka sejak 1994.</p>
+    <div class="flex flex-wrap gap-4">
+      <a href="#lini-bisnis" class="bg-amber hover:bg-amberDark text-white font-semibold text-sm px-7 py-3.5 transition-colors">Lihat Lini Bisnis</a>
+      <a href="#kontak" class="border border-white/40 hover:bg-white/10 text-white font-semibold text-sm px-7 py-3.5 transition-colors">Hubungi Tim Kami</a>
+    </div>
+  </div>
+  <div class="scroll-cue absolute bottom-8 right-6 lg:right-10 text-white/60 hidden sm:block">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<section class="bg-paper py-10 border-b border-steel/15">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-6">
+    <p class="text-sm text-steel">Dipercaya oleh prinsipal otomotif terkemuka</p>
+  </div>
+  <div class="marquee-wrap overflow-hidden">
+    <div class="marquee-track items-center gap-16 pl-8">
+      <img src="https://usra.co.id/images/logos/logo-mmc.png" alt="MMC" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/logo-ktb.png" alt="KTB" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/mkm.png" alt="MKM" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/isuzu.png" alt="Isuzu" class="h-7 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/logo_suzuki.png" alt="Suzuki" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/as_logo.png" alt="AS" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/logo-mmc.png" alt="" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/logo-ktb.png" alt="" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/mkm.png" alt="" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/isuzu.png" alt="" class="h-7 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/logo_suzuki.png" alt="" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+      <img src="https://usra.co.id/images/logos/as_logo.png" alt="" class="h-8 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition">
+    </div>
+  </div>
+</section>
+
+<section id="tentang" class="bg-canvas py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-start">
+    <div class="reveal lg:col-span-5">
+      <h2 class="font-display text-3xl lg:text-4xl font-semibold text-ink mb-6 leading-tight">Dari Delapan Mesin ke Manufaktur Kelas Dunia</h2>
+      <p class="text-steel leading-relaxed mb-4 max-w-[60ch]">Berdiri sejak 1994 di Kawasan Industri Jababeka, Cikarang, PT. Usra Tampi Indonesia memulai operasinya dengan delapan mesin injection. Tiga dekade kemudian, kami mengoperasikan 21 mesin dengan kapasitas 100 hingga 2.400 ton untuk melayani kebutuhan komponen otomotif dalam skala besar.</p>
+      <p class="text-steel leading-relaxed max-w-[60ch]">Setiap produk melewati inspeksi ketat di laboratorium kami, mulai dari digimatic caliper hingga CMM portable Cimcore, didukung sertifikasi ISO 9001 sejak 2012 dan IATF 16949 sejak 2017.</p>
+    </div>
+    <div class="lg:col-span-7">
+      <img src="https://usra.co.id/images/about/about01.JPG" alt="Fasilitas produksi Usra Tampi Indonesia" class="w-full h-[380px] lg:h-[460px] object-cover">
+      <div class="plate bg-graphite text-white grid grid-cols-2 gap-6 lg:gap-8 p-7 lg:p-8 mx-4 lg:mx-10 -mt-14 lg:-mt-16 relative shadow-xl">
+        <div>
+          <p class="font-mono text-3xl lg:text-4xl font-semibold text-amberBright"><span class="counter" data-target="32">0</span>+</p>
+          <p class="text-xs text-steelLight mt-1">Tahun Beroperasi</p>
+        </div>
+        <div>
+          <p class="font-mono text-3xl lg:text-4xl font-semibold text-amberBright"><span class="counter" data-target="21">0</span></p>
+          <p class="text-xs text-steelLight mt-1">Mesin Injection Aktif</p>
+        </div>
+        <div>
+          <p class="font-mono text-3xl lg:text-4xl font-semibold text-amberBright"><span class="counter" data-target="2400">0</span></p>
+          <p class="text-xs text-steelLight mt-1">Ton Kapasitas Maksimal</p>
+        </div>
+        <div>
+          <p class="font-mono text-3xl lg:text-4xl font-semibold text-amberBright"><span class="counter" data-target="2">0</span></p>
+          <p class="text-xs text-steelLight mt-1">Sertifikasi Mutu Internasional</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lini-bisnis" class="bg-paper py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal max-w-2xl mb-14">
+      <h2 class="font-display text-3xl lg:text-4xl font-semibold text-ink mb-5">Tiga Lini Bisnis, Satu Standar Presisi</h2>
+      <p class="text-steel leading-relaxed">Dari pembuatan cetakan hingga perakitan akhir, tiga lini bisnis kami menjalankan setiap tahap produksi dengan kontrol mutu yang konsisten.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-steel/15 border border-steel/15">
+      <div class="card-business bg-paper p-8">
+        <div class="h-40 overflow-hidden mb-6">
+          <img src="https://usra.co.id/images/galery/bs1.png" alt="Injection Mould" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <h3 class="font-display text-lg font-semibold text-ink mb-2">Injection Mould</h3>
+        <p class="text-sm text-steel leading-relaxed mb-3">Menangani new mould trial hingga mass production dengan mesin berkapasitas 100–2.400 ton.</p>
+        <span class="text-sm font-medium text-amber">Selengkapnya</span>
+      </div>
+      <div class="card-business bg-paper p-8">
+        <div class="h-40 overflow-hidden mb-6">
+          <img src="https://usra.co.id/images/galery/bs2.png" alt="Press Forming" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <h3 class="font-display text-lg font-semibold text-ink mb-2">Press Forming</h3>
+        <p class="text-sm text-steel leading-relaxed mb-3">Melayani proses hot lamination dan press forming untuk komponen interior maupun eksterior kendaraan.</p>
+        <span class="text-sm font-medium text-amber">Selengkapnya</span>
+      </div>
+      <div class="card-business bg-paper p-8">
+        <div class="h-40 overflow-hidden mb-6">
+          <img src="https://usra.co.id/images/galery/bs4.png" alt="Assembly Line" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <h3 class="font-display text-lg font-semibold text-ink mb-2">Assembly Line</h3>
+        <p class="text-sm text-steel leading-relaxed mb-3">Merakit komponen seperti steering wheel assembly hingga kebutuhan perakitan lain sesuai spesifikasi prinsipal.</p>
+        <span class="text-sm font-medium text-amber">Selengkapnya</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="produk" class="bg-canvas py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal max-w-2xl mb-14">
+      <h2 class="font-display text-3xl lg:text-4xl font-semibold text-ink mb-5">Komponen Presisi untuk Kendaraan Terkemuka</h2>
+      <p class="text-steel leading-relaxed">Komponen kami digunakan pada berbagai lini kendaraan niaga dan penumpang, hasil kolaborasi jangka panjang dengan prinsipal otomotif terkemuka.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="relative h-72 overflow-hidden group">
+        <img src="https://usra.co.id/images/product/prod1.jpg" alt="Outlander" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-display text-white font-semibold">Outlander</p>
+        </div>
+      </div>
+      <div class="relative h-72 overflow-hidden group">
+        <img src="https://usra.co.id/images/product/prod2.jpg" alt="Xpander" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-display text-white font-semibold">Xpander</p>
+        </div>
+      </div>
+      <div class="relative h-72 overflow-hidden group">
+        <img src="https://usra.co.id/images/product/prod3.jpg" alt="New Canter" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-display text-white font-semibold">New Canter</p>
+        </div>
+      </div>
+      <div class="relative h-72 overflow-hidden group">
+        <img src="https://usra.co.id/images/product/prod4.jpg" alt="Isuzu N-Series" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-display text-white font-semibold">Isuzu N-Series</p>
+        </div>
+      </div>
+      <div class="relative h-72 overflow-hidden group">
+        <img src="https://usra.co.id/images/product/prod5.jpg" alt="Battery B20" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-display text-white font-semibold">Battery B20</p>
+        </div>
+      </div>
+      <div class="relative h-72 overflow-hidden group">
+        <img src="https://usra.co.id/images/product/prod6.jpg" alt="Colt L300" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-display text-white font-semibold">Colt L300</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kualitas" class="bg-paper py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal max-w-2xl mb-16">
+      <h2 class="font-display text-3xl lg:text-4xl font-semibold text-ink mb-5">Komitmen Kualitas di Setiap Proses</h2>
+      <p class="text-steel leading-relaxed">Visi kami adalah menjadi perusahaan dengan daya saing kualitas tingkat nasional dan internasional — diwujudkan melalui produk yang konsisten, layanan yang dapat diandalkan, dan sistem manajemen mutu yang terus disempurnakan.</p>
+    </div>
+    <div class="divide-y divide-steel/15 border-t border-b border-steel/15">
+      <div class="grid lg:grid-cols-12 gap-8 py-10 items-center">
+        <div class="lg:col-span-4">
+          <img src="https://usra.co.id/images/about/about02.JPG" alt="Sistem Manajemen Mutu" class="w-full h-52 object-cover">
+        </div>
+        <div class="lg:col-span-8">
+          <h3 class="font-display text-xl font-semibold text-ink mb-3">Sistem Manajemen Mutu</h3>
+          <p class="text-steel leading-relaxed max-w-[65ch]">Bersertifikat ISO 9001 sejak April 2012 dan IATF 16949 sejak Juni 2017, memastikan setiap proses produksi terdokumentasi dan terukur dari perencanaan hingga pengiriman.</p>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-12 gap-8 py-10 items-center">
+        <div class="lg:col-span-4">
+          <img src="https://usra.co.id/images/news/news1.jpeg" alt="Pelatihan keselamatan kerja" class="w-full h-52 object-cover">
+        </div>
+        <div class="lg:col-span-8">
+          <h3 class="font-display text-xl font-semibold text-ink mb-3">Keselamatan Kerja</h3>
+          <p class="text-steel leading-relaxed max-w-[65ch]">Tim kami mengikuti pelatihan keselamatan secara berkala, termasuk pelatihan pemadam kebakaran bersama pengelola Kawasan Industri Jababeka, untuk menjaga lingkungan kerja yang aman.</p>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-12 gap-8 py-10 items-center">
+        <div class="lg:col-span-4">
+          <img src="https://usra.co.id/images/news/news2.jpeg" alt="Kemitraan dan komunitas" class="w-full h-52 object-cover">
+        </div>
+        <div class="lg:col-span-8">
+          <h3 class="font-display text-xl font-semibold text-ink mb-3">Kemitraan &amp; Komunitas</h3>
+          <p class="text-steel leading-relaxed max-w-[65ch]">Selain menjaga hubungan jangka panjang dengan prinsipal seperti Mitsubishi, Isuzu, dan Suzuki, kami turut ambil bagian dalam program sosial kemasyarakatan di sekitar area operasional.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative bg-graphite py-20 lg:py-24 overflow-hidden">
+  <div class="absolute inset-0 blueprint-grid opacity-10"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+    <div>
+      <h2 class="font-display text-3xl lg:text-[2.5rem] font-semibold text-white mb-3 max-w-xl leading-tight">Siap Menjadi Mitra Manufaktur Presisi Anda</h2>
+      <p class="text-steelLight max-w-lg leading-relaxed">Diskusikan kebutuhan mould, press forming, atau perakitan komponen otomotif Anda bersama tim engineering kami.</p>
+    </div>
+    <a href="mailto:usra@cbn.net.id" class="shrink-0 inline-flex bg-amber hover:bg-amberDark text-white font-semibold px-7 py-4 transition-colors">Hubungi Kami Sekarang</a>
+  </div>
+</section>
+
+<footer id="kontak" class="bg-ink text-steelLight pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 mb-16">
+    <div class="lg:col-span-4">
+      <img src="https://usra.co.id/images/logos/usra.png" alt="Usra Tampi Indonesia" class="h-8 mb-5 brightness-0 invert">
+      <p class="text-sm leading-relaxed max-w-xs">Produsen komponen plastic injection moulding dan press forming untuk industri otomotif, beroperasi sejak 1994 di Cikarang, Jawa Barat.</p>
+    </div>
+    <div class="lg:col-span-2">
+      <p class="font-display text-white text-sm font-semibold mb-4">Perusahaan</p>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="#tentang" class="footer-link">Tentang Kami</a></li>
+        <li><a href="#lini-bisnis" class="footer-link">Lini Bisnis</a></li>
+        <li><a href="#produk" class="footer-link">Produk</a></li>
+        <li><a href="#kualitas" class="footer-link">Kualitas</a></li>
+      </ul>
+    </div>
+    <div class="lg:col-span-3">
+      <p class="font-display text-white text-sm font-semibold mb-4">Kontak</p>
+      <ul class="space-y-2.5 text-sm leading-relaxed">
+        <li>Jl. Jababeka IX D, Blok P2K-O, Kawasan Industri Jababeka, Cikarang – Bekasi 17530, Jawa Barat</li>
+        <li>Telp. 021 - 8934630-31, 89832772</li>
+        <li>Fax. 021 - 8934521</li>
+        <li>usra@cbn.net.id</li>
+      </ul>
+    </div>
+    <div class="lg:col-span-3">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d991.4447487821361!2d107.1275313!3d-6.2927504!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698ff2b7312973%3A0x9ccaf50e7bc1c0b7!2sPT.+Usra+Tampi+Indonesia!5e0!3m2!1sen!2sid!4v1547708653113" class="w-full h-40 border-0 grayscale contrast-125" loading="lazy" title="Lokasi PT. Usra Tampi Indonesia"></iframe>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+    <p>© 2026 PT. Usra Tampi Indonesia. Seluruh hak cipta dilindungi.</p>
+    <p>ISO 9001 · IATF 16949</p>
+  </div>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('nav-solid', window.scrollY > 60);
+});
+
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = +el.dataset.target;
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(progress * target).toLocaleString('id-ID');
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
